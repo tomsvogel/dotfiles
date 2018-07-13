@@ -22,7 +22,7 @@ bindsym $mod+Shift+l move right
 # These are more like the tmux config we will get to later, but are intuitive
 bindsym Control+Shift+minus split horizontal
 bindsym Control+minus  split vertical
-
+bindsym $mod+n move workspace to output right
 bindsym Control+Shift+m fullscreen toggle
 
 # bindsym Control+h workspace prev
@@ -46,7 +46,7 @@ bindcode $mod+74 exec playerctl play-pause
 bindcode $mod+75 exec playerctl next
 
 bindsym $mod+Tab workspace next
-bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
 
 #switch to workspace
 bindsym $mod+1 workspace 1

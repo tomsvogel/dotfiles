@@ -1,6 +1,4 @@
-ZSH_THEME="mh"
-
-
+ZSH_THEME="agnoster"
 
 plugins=(git symfony2 npm yarn yarn-autocompletions osx z taskwarrior tmuxinator zsh-autosuggestions)
 
@@ -24,9 +22,7 @@ alias grebaseMasterInteractive='git rebase -i origin/master'
 alias gfixup='git commit --fixup $(git rev-parse HEAD)'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# export PATH=/usr/local/php5/bin:/usr/local/sbin:$PATH
-# export PATH=/home/toms/npm/bin:$PATH
-#
+export PATH=~/.npm-global/bin:$PATH 
 # #go path
 # export PATH=$PATH:$(go env GOPATH)/bin
 # export GOPATH=$(go env GOPATH)
