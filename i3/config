@@ -5,7 +5,7 @@ set $mod Mod4
 bindsym $mod+d kill
 
 # dmenu is how you start programs -- make it the same as vim command mode
-bindsym Control+space exec dmenu_run
+bindsym $mod+space exec dmenu_run
 
 # i3 uses jkl; instead of hjkl -- fix that
 bindsym $mod+h focus left
@@ -92,10 +92,32 @@ bar {
     }
 }
 
+
+set $mode_display Launch: [1]only laptop [2]externals [3]externals and internal
+bindsym $mod+m mode "$mode_display"
+
+mode "$mode_display" {
+    bindsym 1 exec ~/.dotfiles/displaySettings1.sh
+    bindsym 2 exec ~/.dotfiles/displaySettings2.sh
+    bindsym 3 exec ~/.dotfiles/displaySettings3.sh
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
+set $mode_input Launch: [1]internal [2]external mac
+bindsym $mod+i mode "$mode_input"
+
+mode "$mode_input" {
+    bindsym 1 exec ~/.dotfiles/defaultKeyboard.sh
+    bindsym 2 exec ~/.dotfiles/macKeyboard.sh
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+bindsym $mod+v exec "copyq toggle"
+
 # exec google-chrome
-
-
-
 
 for_window [class="Terminator"] move container to workspace 1
 for_window [class="Firefox"] move container to workspace 2
@@ -114,3 +136,4 @@ exec --no-startup-id slack
 exec --no-startup-id mailspring
 exec --no-startup-id nautilus 
 exec --no-startup-id gnome-calendar
+exec --no-startup-id copyq
