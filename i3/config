@@ -116,7 +116,7 @@ mode "$mode_input" {
     bindsym Return mode "default"
 }
 bindsym $mod+v exec "copyq toggle"
-
+bindsym $mod+Shift+p exec gnome-screenshot -i
 # exec google-chrome
 
 for_window [class="Terminator"] move container to workspace 1
