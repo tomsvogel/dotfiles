@@ -23,6 +23,7 @@ bindsym $mod+Shift+l move right
 bindsym Control+Shift+minus split horizontal
 bindsym Control+minus  split vertical
 bindsym $mod+n move workspace to output right
+bindsym $mod+Shift+n move workspace to output left 
 bindsym Control+Shift+m fullscreen toggle
 
 # bindsym Control+h workspace prev
@@ -74,7 +75,6 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-
 bar {
   status_command conky
     position top
@@ -93,24 +93,27 @@ bar {
 }
 
 
-set $mode_display Launch: [1]only laptop [2]externals [3]externals and internal
+set $mode_display Launch: [1]only laptop [2]externals [3]externals and internal [4]externals office [5]external and internal office
 bindsym $mod+m mode "$mode_display"
 
 mode "$mode_display" {
     bindsym 1 exec ~/.dotfiles/displaySettings1.sh
     bindsym 2 exec ~/.dotfiles/displaySettings2.sh
     bindsym 3 exec ~/.dotfiles/displaySettings3.sh
+    bindsym 4 exec ~/.dotfiles/displaySettings2Office.sh
+    bindsym 5 exec ~/.dotfiles/displaySettings3Office.sh
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
 }
 
-set $mode_input Launch: [1]internal [2]external mac
+set $mode_input Launch: [1]internal [2]external mac [3]external
 bindsym $mod+i mode "$mode_input"
 
 mode "$mode_input" {
     bindsym 1 exec ~/.dotfiles/defaultKeyboard.sh
     bindsym 2 exec ~/.dotfiles/macKeyboard.sh
+    bindsym 3 exec ~/.dotfiles/keyboard.sh
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
@@ -120,7 +123,7 @@ bindsym $mod+Shift+p exec gnome-screenshot -i
 # exec google-chrome
 
 for_window [class="Terminator"] move container to workspace 1
-for_window [class="Firefox"] move container to workspace 2
+for_window [class="Google Chrome"] move container to workspace 2
 for_window [class="Slack"] move container to workspace 9
 for_window [class="Nautilus"] move container to workspace 10
 for_window [class="Mailspring"] move container to workspace 9
@@ -130,7 +133,7 @@ for_window [class="Calendar"] move container to workspace 8
 
 exec --no-startup-id "setxkbmap -option caps:escape" 
 exec --no-startup-id terminator
-exec --no-startup-id firefox
+exec --no-startup-id google-chrome 
 exec --no-startup-id nm-applet
 exec --no-startup-id slack
 exec --no-startup-id mailspring
