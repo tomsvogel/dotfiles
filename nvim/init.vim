@@ -93,8 +93,8 @@ endfor
 for fpath in split(globpath('~/.config/nvim/settings', '*.vim'), '\n')
   exe 'source' fpath
 endfor
- set clipboard=unnamed
-"set clipboard=unnamedplus
+"  set clipboard=unnamed
+set clipboard=unnamedplus
 
 set nocompatible                  " Must come first because it changes other options.
 
@@ -104,10 +104,9 @@ set foldmethod=syntax
 set autoread
 
 " let g:python_host_skip_check = 1
-let g:python3_host_skip_check = 1
-let g:python_host_prog  = '/Library/Frameworks/Python.framework/Versions/2.7/bin/python'
-let g:python3_host_prog = 'python'
+" let g:python3_host_skip_check = 1
 
+" let g:python3_host_prog = 'python'
 
 map <leader>h :wincmd h<CR>
 map <leader>j :wincmd j<CR>

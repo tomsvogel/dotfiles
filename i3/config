@@ -93,31 +93,19 @@ bar {
 }
 
 
-set $mode_display Launch: [1]only laptop [2]externals [3]externals and internal [4]externals office [5]external and internal office
-bindsym $mod+m mode "$mode_display"
+set $mode_workplace Launch: [1]single [2]office [3]home
+bindsym $mod+m mode "$mode_workplace"
 
-mode "$mode_display" {
-    bindsym 1 exec ~/.dotfiles/displaySettings1.sh
-    bindsym 2 exec ~/.dotfiles/displaySettings2.sh
-    bindsym 3 exec ~/.dotfiles/displaySettings3.sh
-    bindsym 4 exec ~/.dotfiles/displaySettings2Office.sh
-    bindsym 5 exec ~/.dotfiles/displaySettings3Office.sh
+mode "$mode_workplace" {
+    bindsym 1 exec ~/.dotfiles/single.sh
+    bindsym 2 exec ~/.dotfiles/office.sh
+    bindsym 3 exec ~/.dotfiles/home.sh
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
 }
 
-set $mode_input Launch: [1]internal [2]external mac [3]external
-bindsym $mod+i mode "$mode_input"
 
-mode "$mode_input" {
-    bindsym 1 exec ~/.dotfiles/defaultKeyboard.sh
-    bindsym 2 exec ~/.dotfiles/macKeyboard.sh
-    bindsym 3 exec ~/.dotfiles/keyboard.sh
-
-    bindsym Escape mode "default"
-    bindsym Return mode "default"
-}
 bindsym $mod+v exec "copyq toggle"
 bindsym $mod+Shift+p exec gnome-screenshot -i
 # exec google-chrome
