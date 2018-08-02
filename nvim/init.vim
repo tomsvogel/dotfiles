@@ -40,8 +40,8 @@ Plug 'tpope/vim-repeat'
 Plug 'brooth/far.vim'
 " Plug 'sbdchd/neoformat'
 Plug 'Shougo/neocomplcache'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
+" Plug 'Shougo/neosnippet'
+" Plug 'Shougo/neosnippet-snippets'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'kien/ctrlp.vim'
@@ -50,8 +50,9 @@ Plug 'eugen0329/vim-esearch'
 Plug 'saltstack/salt-vim'
 Plug 'roxma/vim-hug-neovim-rpc'
 " Plug 'fatih/vim-go'
-" Plug 'jodosha/vim-godebug'
-" Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
+Plug 'epilande/vim-es2015-snippets'
+Plug 'epilande/vim-react-snippets'
 " Plug 'honza/vim-snippets'
 " Plug 'jiangmiao/auto-pairs'
 Plug 'Raimondi/delimitMate'
@@ -71,6 +72,7 @@ Plug 'Shougo/context_filetype.vim'
 Plug 'w0rp/ale'
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 " Plug 'benjie/neomake-local-eslint.vim'
+Plug 'benjie/local-npm-bin.vim'
 " Sensible settings
 Plug 'rstacruz/vim-opinion'
 
@@ -93,8 +95,8 @@ endfor
 for fpath in split(globpath('~/.config/nvim/settings', '*.vim'), '\n')
   exe 'source' fpath
 endfor
-"  set clipboard=unnamed
-set clipboard=unnamedplus
+set clipboard=unnamed
+" set clipboard=unnamedplus
 
 set nocompatible                  " Must come first because it changes other options.
 

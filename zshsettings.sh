@@ -1,4 +1,5 @@
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 plugins=(git symfony2 npm yarn yarn-autocompletions z taskwarrior tmuxinator zsh-autosuggestions)
 
@@ -38,3 +39,4 @@ alias fromTproSimulate='rsync -avu --delete --progress --dry-run --exclude "node
 alias avc='code -a '
 alias python=python3
 alias pip=pip3
+export EDITOR=code
