@@ -77,6 +77,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 bar {
+  tray_output primary
   status_command conky
     position top
     font pango: hack, FontAwesome 9
@@ -122,6 +123,7 @@ bindsym $mod+Shift+u mode "$mode_system"
 
 bindsym $mod+v exec "copyq toggle"
 bindsym $mod+Shift+p exec gnome-screenshot -i
+
 # exec google-chrome
 
 for_window [class="Terminator"] move container to workspace 1
@@ -140,3 +142,6 @@ exec --no-startup-id slack
 exec --no-startup-id nautilus 
 exec --no-startup-id ~/bin/shift 
 exec --no-startup-id copyq
+
+
+#output eDP-1 scale 2
