@@ -122,7 +122,7 @@ mode "$mode_system" {
 bindsym $mod+Shift+u mode "$mode_system"
 
 bindsym $mod+v exec "copyq toggle"
-bindsym $mod+Shift+p exec gnome-screenshot -i
+bindsym $mod+Shift+p exec flameshot gui 
 
 # exec google-chrome
 

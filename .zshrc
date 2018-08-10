@@ -31,7 +31,7 @@ export PATH=~/.npm-global/bin:$PATH
 # locale settings
 export LC_ALL=en_US.UTF-8
 
-export PATH=~/bin:$PATH 
+export PATH=~/bin:~/.local/bin:$PATH 
 
 alias toTpro='rsync -avu --delete --progress --exclude "node_modules" $PWD toms@tpro1.arkulp.at:$(dirname "$PWD")'
 alias toTproSimulate='rsync -avu --delete --progress --dry-run --exclude "node_modules" $PWD toms@tpro1.arkulp.at:$(dirname "$PWD")'
