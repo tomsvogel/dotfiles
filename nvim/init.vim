@@ -95,8 +95,12 @@ endfor
 for fpath in split(globpath('~/.config/nvim/settings', '*.vim'), '\n')
   exe 'source' fpath
 endfor
-" set clipboard=unnamed
-set clipboard=unnamedplus
+
+if has('mac')       " osx
+  set clipboard=unnamed
+else                " linux, bsd, etc
+  set clipboard=unnamedplus
+endif
 
 set nocompatible                  " Must come first because it changes other options.
 
