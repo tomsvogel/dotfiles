@@ -1,5 +1,17 @@
+#!/usr/bin/env bash
+case "$(uname -s)" in
+   Darwin)
+     export ZSH="/Users/toms/.oh-my-zsh"
+     ;;
 
-export ZSH="/home/toms/.oh-my-zsh"
+   Linux)
+     export ZSH="/home/toms/.oh-my-zsh"
+     ;;
+   *)
+     echo 'other OS' 
+     ;;
+esac
+
 ZSH_THEME="robbyrussell"
 source $ZSH/oh-my-zsh.sh
 
