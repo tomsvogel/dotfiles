@@ -13,6 +13,7 @@ case "$(uname -s)" in
 esac
 
 ZSH_THEME="robbyrussell"
+ZSH_DISABLE_COMPFIX=true
 source $ZSH/oh-my-zsh.sh
 
 plugins=(git symfony2 npm yarn yarn-autocompletions z taskwarrior tmuxinator zsh-autosuggestions)

@@ -121,12 +121,12 @@ mode "$mode_system" {
 }
 bindsym $mod+Shift+u mode "$mode_system"
 
-bindsym $mod+v exec "copyq toggle"
+bindsym $mod+shift+v exec "copyq toggle"
 bindsym $mod+Shift+p exec flameshot gui 
 
 # exec google-chrome
 
-for_window [class="Terminator"] move container to workspace 1
+for_window [class="Hyper"] move container to workspace 1
 for_window [class="Chromium"] move container to workspace 2
 for_window [class="Slack"] move container to workspace 9
 for_window [class="Nautilus"] move container to workspace 10
@@ -135,12 +135,12 @@ for_window [class="Slack"] move container to workspace 9
 
 
 exec --no-startup-id "setxkbmap -option caps:escape" 
-exec --no-startup-id terminator
+exec --no-startup-id hyper 
 exec --no-startup-id chromium 
 exec --no-startup-id nm-applet
 exec --no-startup-id slack
 exec --no-startup-id nautilus 
-exec --no-startup-id ~/bin/shift 
+exec --no-startup-id ~/bin/shift/Shift 
 exec --no-startup-id copyq
 
 

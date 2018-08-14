@@ -53,6 +53,8 @@ npm config set prefix '~/.npm-global'
 
 npm install -g yarn
 npm install -g n
+# for nodemon
+echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
 #gnome i3
 git clone https://github.com/damko/gnome3-plus-i3.git 
