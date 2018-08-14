@@ -12,7 +12,7 @@ case "$(uname -s)" in
      ;;
 esac
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="amuse"
 ZSH_DISABLE_COMPFIX=true
 source $ZSH/oh-my-zsh.sh
 
