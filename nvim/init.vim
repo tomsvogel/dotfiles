@@ -9,7 +9,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'JulesWang/css.vim'
 Plug 'genoma/vim-less'
 Plug 'othree/html5.vim'
-Plug 'leafgarland/typescript-vim'
+" Plug 'leafgarland/typescript-vim'
 Plug 'moll/vim-node'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
@@ -18,7 +18,7 @@ Plug 'ervandew/supertab'
 Plug 'plasticboy/vim-markdown'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'tpope/vim-haml'
+" Plug 'tpope/vim-haml'
 Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'mustache/vim-mustache-handlebars'
@@ -33,8 +33,8 @@ Plug 'vim-airline/vim-airline-themes'
 " Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-gtfo'
-Plug 'icymind/NeoSolarized'
-Plug 'Chiel92/vim-autoformat'
+" Plug 'icymind/NeoSolarized'
+" Plug 'Chiel92/vim-autoformat'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-repeat'
 Plug 'brooth/far.vim'
@@ -45,17 +45,17 @@ Plug 'Shougo/neocomplcache'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'kien/ctrlp.vim'
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 Plug 'eugen0329/vim-esearch'
-Plug 'saltstack/salt-vim'
+" Plug 'saltstack/salt-vim'
 Plug 'roxma/vim-hug-neovim-rpc'
 " Plug 'fatih/vim-go'
 Plug 'SirVer/ultisnips'
 Plug 'epilande/vim-es2015-snippets'
 Plug 'epilande/vim-react-snippets'
 " Plug 'honza/vim-snippets'
-" Plug 'jiangmiao/auto-pairs'
-Plug 'Raimondi/delimitMate'
+" Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
 " Autocompletion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
@@ -66,18 +66,19 @@ Plug 'kristijanhusak/deoplete-phpactor'
 " Deoplete addons
 Plug 'Shougo/context_filetype.vim'
 " Plug 'Shougo/neoinclude.vim'
-
+Plug 'alvan/vim-closetag'
 " Linters
 " Plug 'neomake/neomake'
 Plug 'w0rp/ale'
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 " Plug 'benjie/neomake-local-eslint.vim'
-Plug 'benjie/local-npm-bin.vim'
+" Plug 'benjie/local-npm-bin.vim'
 " Sensible settings
 Plug 'rstacruz/vim-opinion'
-
+Plug 'rakr/vim-one'
 " color 
-Plug 'rafi/awesome-vim-colorschemes'
+" Plug 'rafi/awesome-vim-colorschemes'
+" Plug 'endel/vim-github-colorscheme'
 " Plug 'joonty/vdebug'
 call plug#end()
 
@@ -104,17 +105,19 @@ endif
 
 set nocompatible                  " Must come first because it changes other options.
 
-filetype plugin indent on         " Turn on file type detection.
-syntax enable                     " Turn on syntax highlighting.
-set foldmethod=syntax
-set autoread
+" filetype plugin indent on         " Turn on file type detection.
+" syntax enable                     " Turn on syntax highlighting.
+" set foldmethod=syntax
+" set autoread
 
 " let g:python_host_skip_check = 1
 " let g:python3_host_skip_check = 1
 
-" let g:python3_host_prog = 'python'
+let g:python3_host_prog = '/Users/toms/.pyenv/shims/python'
 
 map <leader>h :wincmd h<CR>
 map <leader>j :wincmd j<CR>
 map <leader>k :wincmd k<CR>
 map <leader>l :wincmd l<CR>
+set ttyfast
+set lazyredraw

@@ -43,3 +43,5 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 let g:SuperTabClosePreviewOnPopupClose = 1
 " " or just disable the preview entirely
 " set completeopt-=preview
+"
+" call deoplete#custom#option('num_processes', 1)

@@ -133,6 +133,7 @@ for_window [class="Nautilus"] move container to workspace 10
 for_window [class="Shift"] move container to workspace 8
 for_window [class="Slack"] move container to workspace 9
 
+for_window [class="^.*"] border pixel 1
 
 exec --no-startup-id "setxkbmap -option caps:escape" 
 exec --no-startup-id hyper 
@@ -143,5 +144,10 @@ exec --no-startup-id nautilus
 exec --no-startup-id ~/bin/shift/Shift 
 exec --no-startup-id copyq
 
+exec synclient VertScroll=-102 synclient HorizScroll= -102
+  
+  
+  
+  
 
 #output eDP-1 scale 2

@@ -21,3 +21,4 @@ autocmd BufEnter * :syntax sync fromstart
 :syntax on
 :set fdm=syntax
 
+set nogdefault
