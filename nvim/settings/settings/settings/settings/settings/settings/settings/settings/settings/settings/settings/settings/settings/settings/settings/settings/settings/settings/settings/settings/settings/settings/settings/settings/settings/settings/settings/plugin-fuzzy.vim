@@ -1,1 +1,0 @@
-"nnoremap <tab> :FuzzyOpen<CR>
