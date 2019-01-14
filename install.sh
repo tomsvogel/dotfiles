@@ -28,7 +28,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.g
 #python
 #curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | zsh
 #pyenv update
-
+LDFLAGS="-L/usr/local/opt/readline/lib" CFLAGS="-I/usr/local/opt/readline/include" /home/toms/.pyenv/bin/pyenv install 3.6.7
 
 
 #docker 
@@ -74,3 +74,9 @@ npm install -g eslint eslint-plugin-babel eslint-plugin-react prettier sqlite3
 
 pip3 install --user meson
 #download playerctl deb https://github.com/acrisci/playerctl/releases
+
+
+# set ssh default for git
+git config --global url.ssh://git@bitbucket.org/.insteadOf https://bitbucket.org/
+git config --global url.ssh://git@github.com/.insteadOf https://github.com/
+

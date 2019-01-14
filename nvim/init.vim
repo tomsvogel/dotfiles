@@ -14,7 +14,7 @@ Plug 'moll/vim-node'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'ternjs/tern_for_vim',{ 'for': ['javascript', 'javascript.jsx'] }
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 Plug 'plasticboy/vim-markdown'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'hail2u/vim-css3-syntax'
@@ -24,7 +24,8 @@ Plug 'stephpy/vim-php-cs-fixer'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'evidens/vim-twig'
 Plug 'Galooshi/vim-import-js'
-
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'hail2u/vim-css3-syntax'
 " Utilities
 " Plug 'Lokaltog/vim-easymotion'
 " Plug 'mhinz/vim-signify'
@@ -56,14 +57,27 @@ Plug 'epilande/vim-react-snippets'
 " Plug 'honza/vim-snippets'
 " Plug 'Raimondi/delimitMate'
 Plug 'jiangmiao/auto-pairs'
+
+Plug 'othree/xml.vim'
+
 " Autocompletion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'kristijanhusak/deoplete-phpactor'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+" Plug 'kristijanhusak/deoplete-phpactor'
 " Plug 'roxma/nvim-completion-manager'
 " Plug 'roxma/nvim-cm-tern', {'do': 'npm install'}
 " Plug 'roxma/ncm-phpactor'
+
 " Deoplete addons
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2'
+Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
+Plug 'phpactor/ncm2-phpactor'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-tmux'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-ultisnips'
+
 Plug 'Shougo/context_filetype.vim'
 " Plug 'Shougo/neoinclude.vim'
 Plug 'alvan/vim-closetag'
@@ -96,11 +110,12 @@ endfor
 for fpath in split(globpath('~/.config/nvim/settings', '*.vim'), '\n')
   exe 'source' fpath
 endfor
-
 if has('mac')       " osx
   set clipboard=unnamed
+  let g:python3_host_prog = '/Users/toms/.pyenv/shims/python'
 else                " linux, bsd, etc
   set clipboard=unnamedplus
+  " let g:python3_host_prog = '/home/toms/.pyenv/shims/python'
 endif
 
 set nocompatible                  " Must come first because it changes other options.
@@ -113,11 +128,18 @@ set nocompatible                  " Must come first because it changes other opt
 " let g:python_host_skip_check = 1
 " let g:python3_host_skip_check = 1
 
-let g:python3_host_prog = '/Users/toms/.pyenv/shims/python'
-
 map <leader>h :wincmd h<CR>
 map <leader>j :wincmd j<CR>
 map <leader>k :wincmd k<CR>
-map <leader>l :wincmd l<CR>
+map <leader>l :wincmd l<CR>:
 set ttyfast
 set lazyredraw
+
+set colorcolumn=80
+augroup javascript_folding
+    au!
+    au FileType javascript setlocal foldmethod=syntax
+augroup END
+set conceallevel=1
+
+

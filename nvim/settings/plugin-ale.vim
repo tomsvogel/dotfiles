@@ -7,10 +7,10 @@ let g:ale_fixers = {
 \   'javascript': ['prettier','eslint'],
 \   'yaml': ['prettier'], 
 \   'json': ['prettier'], 
-\   'scss': ['stylelint'],
-\   'less': ['stylelint'],
+\   'scss': ['prettier','stylelint'],
+\   'less': ['prettier','stylelint'],
 \   'sh': ['shfmt'],
-\   'css': ['stylelint'],
+\   'css': ['prettier','stylelint'],
 \   'php': ['phpcbf'],
 \   'xml': ['xmllint']
 \}

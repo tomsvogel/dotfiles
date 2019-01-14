@@ -2,24 +2,37 @@
 case "$(uname -s)" in
    Darwin)
      export ZSH="/Users/toms/.oh-my-zsh"
+
+      
+     # The next line updates PATH for the Google Cloud SDK.
+     if [ -f '/Users/toms/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/toms/google-cloud-sdk/path.zsh.inc'; fi
+
+     # The next line enables shell command completion for gcloud.
+     if [ -f '/Users/toms/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/toms/google-cloud-sdk/completion.zsh.inc'; fi
      ;;
 
    Linux)
      export ZSH="/home/toms/.oh-my-zsh"
+     # The next line updates PATH for the Google Cloud SDK.
+     if [ -f '/home/toms/google-cloud-sdk/path.zsh.inc' ]; then source '/home/toms/google-cloud-sdk/path.zsh.inc'; fi
+
+     # The next line enables shell command completion for gcloud.
+     if [ -f '/home/toms/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/toms/google-cloud-sdk/completion.zsh.inc'; fi
      ;;
    *)
      echo 'other OS' 
      ;;
 esac
+DISABLE_AUTO_UPDATE=true
 HISTSIZE=1000
 SAVEHIST=1000
 ZSH_THEME="avit"
 ZSH_DISABLE_COMPFIX=true
+
+plugins=(zsh-autosuggestions kubectl docker)
+
 source $ZSH/oh-my-zsh.sh
 
-plugins=(git symfony2 npm yarn yarn-autocompletions z taskwarrior tmuxinator zsh-autosuggestions)
-
-source $ZSH/oh-my-zsh.sh
 
 alias vim='nvim'
 #
@@ -42,6 +55,10 @@ alias gfixup='git commit --fixup $(git rev-parse HEAD)'
 function portUsage () {
   sudo lsof -i tcp:"$1"
 }
+
+alias cpu_psave='sudo cpufreq-set -r -g powersave'
+alias cpu_perf='sudo cpufreq-set -r -g performance'
+alias cpu_info='cpufreq-info'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH=~/.npm-global/bin:$PATH 
 # #go path
@@ -60,29 +77,17 @@ alias fromTproSimulate='rsync -avu --delete --progress --dry-run --exclude "node
 
 alias avc='code -a '
 alias mongoForward='ssh -fN -L 9999:localhost:27017' 
-# alias python=python3
-# alias pip=pip3
+alias sqlForward='ssh -fN -L 9998:localhost:3306' 
+alias python=python3
+alias pip=pip3
 export EDITOR=vim
-
-
-# The next line updates PATH for the Google Cloud SDK.
-# if [ -f '/Users/toms/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/toms/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-# if [ -f '/Users/toms/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/toms/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 # pyenv
 export LDFLAGS="-L/usr/local/opt/zlib/lib"
 export CPPFLAGS="-I/usr/local/opt/zlib/include"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/toms/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/toms/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/toms/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/toms/google-cloud-sdk/completion.zsh.inc'; fi
-KUBECONFIG=~/.kube/config:~/.kube/crate_config_user:~/.kube/crate_kubeconfig_shared kubectl config view --flatten > mergedkub && mv mergedkub ~/.kube/config
-
+KUBECONFIG=~/.kube/config:~/.kube/eventz-kubeconfig.yaml:~/.kube/crate_config_user:~/.kube/crate_kubeconfig_shared kubectl config view --flatten > mergedkub && mv mergedkub ~/.kube/config
