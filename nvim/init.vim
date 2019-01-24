@@ -57,9 +57,9 @@ Plug 'epilande/vim-react-snippets'
 " Plug 'honza/vim-snippets'
 " Plug 'Raimondi/delimitMate'
 Plug 'jiangmiao/auto-pairs'
-
 Plug 'othree/xml.vim'
-
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 " Autocompletion
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
@@ -77,7 +77,6 @@ Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-tmux'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-ultisnips'
-
 Plug 'Shougo/context_filetype.vim'
 " Plug 'Shougo/neoinclude.vim'
 Plug 'alvan/vim-closetag'

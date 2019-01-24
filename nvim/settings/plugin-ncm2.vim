@@ -16,3 +16,4 @@ call ncm2#register_source({'name' : 'css',
             \ 'on_complete': ['ncm2#on_complete#omni',
             \               'csscomplete#CompleteCSS'],
             \ })
+

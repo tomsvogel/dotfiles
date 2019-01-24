@@ -83,11 +83,18 @@ alias pip=pip3
 export EDITOR=vim
 
 # pyenv
-export LDFLAGS="-L/usr/local/opt/zlib/lib"
-export CPPFLAGS="-I/usr/local/opt/zlib/include"
-export PATH="/usr/local/opt/openssl/bin:$PATH"
+# export LDFLAGS="-L/usr/local/opt/zlib/lib"
+# export CPPFLAGS="-I/usr/local/opt/zlib/include"
+# export PATH="/usr/local/opt/openssl/bin:$PATH"
 # export PYENV_ROOT="$HOME/.pyenv"
 # export PATH="$PYENV_ROOT/bin:$PATH"
 # eval "$(pyenv init -)"
 
+
+case "$(uname -s)" in
+   Darwin)
+      #init fnm - fast node manager
+      eval `fnm env`
+     ;;
+esac
 KUBECONFIG=~/.kube/config:~/.kube/eventz-kubeconfig.yaml:~/.kube/crate_config_user:~/.kube/crate_kubeconfig_shared kubectl config view --flatten > mergedkub && mv mergedkub ~/.kube/config

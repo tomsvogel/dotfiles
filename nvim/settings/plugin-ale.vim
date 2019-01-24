@@ -1,10 +1,11 @@
-let g:ale_linters = { 'javascript': ['eslint'] , 'php': ['phpcbf']}
+let g:ale_linters = { 'javascript': ['eslint'], 'typescript':['eslint'] , 'php': ['phpcs']}
 let g:airline#extensions#ale#enabled = 1
 
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5 --print-width 120 --tab-width 2 --jsx-bracket-same-line --no-bracket-spacing'
 
 let g:ale_fixers = {
 \   'javascript': ['prettier','eslint'],
+\   'typescript': ['prettier','eslint'],
 \   'yaml': ['prettier'], 
 \   'json': ['prettier'], 
 \   'scss': ['prettier','stylelint'],
@@ -15,6 +16,8 @@ let g:ale_fixers = {
 \   'xml': ['xmllint']
 \}
 let g:ale_completion_enabled = 1
+" let g:ale_sign_error = '❌'
+" let g:ale_sign_warning = '⚠️'
 
 " Set this setting in vimrc if you want to fix files automatically on save.
 " This is off by default.
