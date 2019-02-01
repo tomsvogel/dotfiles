@@ -69,9 +69,9 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
+workspace 1 output DP-1
 workspace 2 output DP-1
-workspace 9 output DP-1
-workspace 10 output DP-1
+# workspace 10 output DP-1
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -142,6 +142,7 @@ for_window [class="Hyper"] move container to workspace 1
 for_window [class="Firefox"] move container to workspace 2
 for_window [class="Slack"] move container to workspace 9
 for_window [class="Nautilus"] move container to workspace 10
+for_window [class="Mailspring"] move container to workspace 3
 
 for_window [class="^.*"] border pixel 1
 for_window [window_role="pop-up"] floating enable
@@ -167,6 +168,7 @@ exec --no-startup-id synclient RightButtonAreaTop=0
 exec --no-startup-id synclient VertTwoFingerScroll=1
 exec --no-startup-id synclient VertScrollDelta=-30
 exec --no-startup-id synclient HorizTwoFingerScroll=1
+exec --no-startup-id mailspring 
 
 
 
