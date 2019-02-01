@@ -97,6 +97,16 @@ call plug#end()
 
 " ========================================
 
+augroup FiletypeGroup
+    autocmd!
+    au BufNewFile,BufRead *.tsx set filetype=typescript
+augroup END
+
+augroup FiletypeGroup
+    autocmd!
+    au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+augroup END
+
 " Prepare sensible/opinion overrides
 " runtime! plugin/sensible.vim
 runtime! plugin/opinion.vim 
@@ -142,3 +152,6 @@ augroup END
 set conceallevel=1
 
 
+
+set foldcolumn=0
+set signcolumn=no
