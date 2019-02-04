@@ -29,7 +29,8 @@ SAVEHIST=1000
 ZSH_THEME="avit"
 ZSH_DISABLE_COMPFIX=true
 
-plugins=(zsh-autosuggestions kubectl docker)
+# plugins=(zsh-autosuggestions kubectl docker)
+plugins=(zsh-autosuggestions docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -99,4 +100,11 @@ case "$(uname -s)" in
 esac
 KUBECONFIG=~/.kube/config:~/.kube/eventz-cluster-kubeconfig.yaml:~/.kube/crate_config_user:~/.kube/crate_kubeconfig_shared kubectl config view --flatten > mergedkub && mv mergedkub ~/.kube/config
 
+function kubectl() {
+    if ! type __start_kubectl >/dev/null 2>&1; then
+        source <(command kubectl completion zsh)
+    fi
+
+    command kubectl "$@"
+}
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
