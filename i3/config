@@ -27,6 +27,8 @@ bindsym Control+Shift+minus split horizontal
 bindsym Control+minus  split vertical
 bindsym Control+Shift+h move workspace to output left
 bindsym Control+Shift+l move workspace to output right
+bindsym Control+Shift+j move workspace to output down
+bindsym Control+Shift+k move workspace to output up 
 # bindsym $mod+n move workspace to output right
 # bindsym $mod+Shift+up move workspace to output up 
 # bindsym Control+Shift+left move workspace to output left
@@ -54,8 +56,15 @@ bindsym Mod1+b exec playerctl previous
 bindsym Mod1+p exec playerctl play-pause
 bindsym Mod1+n exec playerctl next
 
-bindsym $mod+Tab workspace next
-bindsym $mod+Shift+Tab workspace prev
+# bindsym $mod+Tab exec --no-startup-id rofi -modi combi -combi-modi window -show combi
+# bindsym $mod+Tab exec "rofi -show combi run,window"
+# bindsym $mod+Tab workspace next
+# bindsym $mod+Shift+Tab workspace prev
+
+set $i3t_alt_tab        ~/.dotfiles/i3/i3tab.py n
+set $i3t_alt_shift_tab  ~/.dotfiles/i3/i3tab.py p
+bindsym $mod+Tab exec   exec $i3t_alt_tab
+bindsym $mod+Shift+Tab  exec $i3t_alt_shift_tab
 
 #switch to workspace
 bindsym $mod+1 workspace 1
@@ -69,7 +78,7 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-workspace 1 output DP-1
+# workspace 1 output DP-1
 workspace 2 output DP-1
 # workspace 10 output DP-1
 
@@ -88,6 +97,8 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
+
 bar {
   tray_output primary
   status_command conky
@@ -107,7 +118,7 @@ bar {
 }
 
 
-set $mode_workplace Launch: [1]single [2]with 27 [3]with full HD Screen [4]Beamer mirrored
+set $mode_workplace Launch: [1]single [2]with 27 [3]with full HD Screen [4]Beamer mirrored [5]27 single [6]mac keyboard [7]internal keyboard
 bindsym $mod+Shift+m mode "$mode_workplace"
 
 mode "$mode_workplace" {
@@ -115,7 +126,9 @@ mode "$mode_workplace" {
     bindsym 2 exec ~/.dotfiles/displayWith24.sh, mode "default"
     bindsym 3 exec ~/.dotfiles/displayWithFullHD.sh, mode "default"
     bindsym 4 exec ~/.dotfiles/displayBeamer.sh, mode "default"
-
+    bindsym 5 exec ~/.dotfiles/single27.sh, mode "default"
+    bindsym 6 exec ~/.dotfiles/macKeyboard.sh, mode "default"
+    bindsym 7 exec ~/.dotfiles/defaultKeyboard.sh, mode "default"
     bindsym Escape mode "default"
 }
 
