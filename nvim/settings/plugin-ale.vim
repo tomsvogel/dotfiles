@@ -3,8 +3,8 @@ let g:ale_linter_aliases = {'jsx': ['css', 'javascript'], 'tsx': ['css','typescr
 let g:ale_linters = { 
 \ 'css':['stylelint'],
 \ 'javascript': ['eslint'],
-\ 'jsx': ['stylelint','eslint'], 
-\ 'tsx': ['stylelint','eslint'], 
+\ 'jsx': ['eslint','stylelint'], 
+\ 'tsx': ['eslint','stylelint'], 
 \ 'typescript': ['eslint'], 
 \ 'php': ['phpcs']
 \}
