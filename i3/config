@@ -118,7 +118,7 @@ bar {
 }
 
 
-set $mode_workplace Launch: [1]single [2]with 27 [3]with full HD Screen [4]Beamer mirrored [5]27 single [6]mac keyboard [7]internal keyboard
+set $mode_workplace Launch: [1]single [2]with 27 [3]with full HD Screen [4]Beamer mirrored [5]27 single [6]macKB [7]new macKB [8]internal KB
 bindsym $mod+Shift+m mode "$mode_workplace"
 
 mode "$mode_workplace" {
@@ -128,7 +128,8 @@ mode "$mode_workplace" {
     bindsym 4 exec ~/.dotfiles/displayBeamer.sh, mode "default"
     bindsym 5 exec ~/.dotfiles/single27.sh, mode "default"
     bindsym 6 exec ~/.dotfiles/macKeyboard.sh, mode "default"
-    bindsym 7 exec ~/.dotfiles/defaultKeyboard.sh, mode "default"
+    bindsym 7 exec ~/.dotfiles/macKeyboardNew.sh, mode "default"
+    bindsym 8 exec ~/.dotfiles/defaultKeyboard.sh, mode "default"
     bindsym Escape mode "default"
 }
 
