@@ -17,3 +17,7 @@ call ncm2#register_source({'name' : 'css',
             \               'csscomplete#CompleteCSS'],
             \ })
 
+let g:LanguageClient_serverCommands = {
+  \ 'typescript': ['javascript-typescript-stdio'],
+  \ 'javascript': ['javascript-typescript-stdio']
+  \ }

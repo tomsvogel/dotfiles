@@ -14,4 +14,5 @@ function! VimTSCConfig()
     no <Leader>ti   :TSImport<cr>
 endfunction
 call VimTSCConfig()
-call ncm2#nvim_typescript#init()
+
+" call ncm2#nvim_typescript#init()

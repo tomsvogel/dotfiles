@@ -9,11 +9,10 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'JulesWang/css.vim'
 Plug 'genoma/vim-less'
 Plug 'othree/html5.vim'
-" Plug 'leafgarland/typescript-vim'
 Plug 'moll/vim-node'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'ternjs/tern_for_vim',{ 'for': ['javascript', 'javascript.jsx'] }
+" Plug 'ternjs/tern_for_vim',{ 'for': ['javascript', 'javascript.jsx'] }
 " Plug 'ervandew/supertab'
 Plug 'plasticboy/vim-markdown'
 Plug 'cakebaker/scss-syntax.vim'
@@ -61,38 +60,29 @@ Plug 'othree/xml.vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 " Autocompletion
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-" Plug 'kristijanhusak/deoplete-phpactor'
-" Plug 'roxma/nvim-completion-manager'
-" Plug 'roxma/nvim-cm-tern', {'do': 'npm install'}
-" Plug 'roxma/ncm-phpactor'
 
 " Deoplete addons
 Plug 'roxma/nvim-yarp'
 Plug 'ncm2/ncm2'
-Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
+" Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
 Plug 'phpactor/ncm2-phpactor'
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-tmux'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-ultisnips'
+Plug 'autozimu/LanguageClient-neovim', {
+  \ 'branch': 'next',
+  \ 'do': 'bash install.sh',
+  \ }
 Plug 'Shougo/context_filetype.vim'
-" Plug 'Shougo/neoinclude.vim'
 Plug 'alvan/vim-closetag'
 " Linters
-" Plug 'neomake/neomake'
 Plug 'w0rp/ale'
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
-" Plug 'benjie/neomake-local-eslint.vim'
-" Plug 'benjie/local-npm-bin.vim'
 " Sensible settings
 Plug 'rstacruz/vim-opinion'
 Plug 'rakr/vim-one'
 " color 
-" Plug 'rafi/awesome-vim-colorschemes'
-" Plug 'endel/vim-github-colorscheme'
-" Plug 'joonty/vdebug'
 call plug#end()
 
 " ========================================

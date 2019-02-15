@@ -98,8 +98,10 @@ case "$(uname -s)" in
       eval `fnm env`
      ;;
 esac
-KUBECONFIG=~/.kube/config:~/.kube/eventz-cluster-kubeconfig.yaml:~/.kube/crate_config_user:~/.kube/crate_kubeconfig_shared kubectl config view --flatten > mergedkub && mv mergedkub ~/.kube/config
 
+function k8sconfig () {
+    KUBECONFIG=~/.kube/config:~/.kube/eventz-cluster-kubeconfig.yaml:~/.kube/crate_config_user:~/.kube/crate_kubeconfig_shared kubectl config view --flatten > mergedkub && mv mergedkub ~/.kube/config
+  }
 function kubectl() {
     if ! type __start_kubectl >/dev/null 2>&1; then
         source <(command kubectl completion zsh)
