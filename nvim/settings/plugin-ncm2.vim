@@ -17,3 +17,22 @@ call ncm2#register_source({'name' : 'css',
             \               'csscomplete#CompleteCSS'],
             \ })
 
+" let g:LanguageClient_serverCommands = {
+"       \ 'typescript': ['~/.npm-global/bin/javascript-typescript-stdio'],
+"       \ 'typescript.tsx': ['~/.npm-global/bin/javascript-typescript-stdio'],
+"       \}
+" let g:LanguageClient_serverCommands = {
+"  \ 'javascript': ['javascript-typescript-stdio'],
+"  \ 'javascript.jsx': ['javascript-typescript-stdio'],
+"  \ 'typescript': ['javascript-typescript-stdio'],
+"  \ 'typescript.jsx': ['javascript-typescript-stdio']
+"  \ }
+" let g:LanguageClient_autoStart = 1
+" set completefunc=LanguageClient#complete
+" set formatexpr=LanguageClient_textDocument_rangeFormatting()
+" nnoremap <silent>th :call LanguageClient#textDocument_hover()<CR>
+" nnoremap <silent>tr :call LanguageClient#textDocument_references()<CR>
+" nnoremap <silent>td :call LanguageClient#textDocument_definition()<CR>
+" nnoremap <silent>tn :call LanguageClient#textDocument_rename()<CR>
+" enable ncm2 for all buffers
+" IMPORTANTE: :help Ncm2PopupOpen for more information
