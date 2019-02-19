@@ -57,11 +57,9 @@ Plug 'epilande/vim-react-snippets'
 " Plug 'Raimondi/delimitMate'
 Plug 'jiangmiao/auto-pairs'
 Plug 'othree/xml.vim'
+Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-" Autocompletion
-
-" Deoplete addons
 Plug 'roxma/nvim-yarp'
 Plug 'ncm2/ncm2'
 " Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
@@ -75,11 +73,16 @@ Plug 'autozimu/LanguageClient-neovim', {
   \ 'do': 'bash install.sh',
   \ }
 Plug 'Shougo/context_filetype.vim'
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
+" Plug 'Shougo/neoinclude.vim'
 Plug 'alvan/vim-closetag'
 " Linters
 Plug 'w0rp/ale'
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
-" Sensible settings
+
 Plug 'rstacruz/vim-opinion'
 Plug 'rakr/vim-one'
 " color 
@@ -135,13 +138,13 @@ set ttyfast
 set lazyredraw
 
 set colorcolumn=80
-augroup javascript_folding
-    au!
-    au FileType javascript setlocal foldmethod=syntax
-augroup END
-set conceallevel=1
+" augroup javascript_folding
+"     au!
+"     au FileType javascript setlocal foldmethod=syntax
+" augroup END
+" set conceallevel=1
 
 
 
-set foldcolumn=0
-set signcolumn=no
+" set foldcolumn=0
+" set signcolumn=no

@@ -5,11 +5,13 @@ let g:ale_linters = {
 \ 'javascript': ['eslint'],
 \ 'jsx': ['eslint','stylelint'], 
 \ 'tsx': ['eslint','stylelint'], 
-\ 'typescript': ['eslint'], 
 \ 'php': ['phpcs']
 \}
 
+" \ 'typescript': ['eslint'], 
+
 let g:airline#extensions#ale#enabled = 1
+
 
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5 --print-width 120 --tab-width 2 --jsx-bracket-same-line --no-bracket-spacing'
 
