@@ -1,6 +1,7 @@
 # Mod=Alt -- I use alt so it doesn't conflict with vim or tmux but is easy to reach
 set $mod Mod4
 
+exec --no-startup-id compton --config ~/.dotfiles/i3/compton.conf -b
 focus_follows_mouse no
 # kill focused window (vim delete, follows vimperator settings more than vim)
 bindsym $mod+Shift+d kill
@@ -61,10 +62,8 @@ bindsym Mod1+n exec playerctl next
 # bindsym $mod+Tab workspace next
 # bindsym $mod+Shift+Tab workspace prev
 
-set $i3t_alt_tab        ~/.dotfiles/i3/i3tab.py n
-set $i3t_alt_shift_tab  ~/.dotfiles/i3/i3tab.py p
-bindsym $mod+Tab exec   exec $i3t_alt_tab
-bindsym $mod+Shift+Tab  exec $i3t_alt_shift_tab
+bindsym $mod+Tab exec /home/toms/.npm-global/bin/i3-alt-tab --next
+bindsym $mod+Shift+Tab exec /home/toms/.npm-global/bin/i3-alt-tab --prev
 
 #switch to workspace
 bindsym $mod+1 workspace 1
@@ -183,7 +182,6 @@ exec --no-startup-id synclient VertTwoFingerScroll=1
 exec --no-startup-id synclient VertScrollDelta=-30
 exec --no-startup-id synclient HorizTwoFingerScroll=1
 exec --no-startup-id mailspring 
-
 
 
 

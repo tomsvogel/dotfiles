@@ -36,7 +36,6 @@ module.exports = {
       .terms_termsShifted {
         margin-top: 30px;
       }
-      .cur
     `,
 
     // custom css to embed in the terminal window
