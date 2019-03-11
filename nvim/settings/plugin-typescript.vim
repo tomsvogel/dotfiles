@@ -1,4 +1,6 @@
 function! VimTSCConfig()
+    au BufRead,BufNewFile *.ts   setfiletype typescript
+    au BufRead,BufNewFile *.tsx  setfiletype typescript
     let g:nvim_typescript#javascript_support=1
     let g:nvim_typescript#vue_support=1
     let g:nvim_typescript#completion_mark=1

@@ -4,7 +4,7 @@ let g:ale_linters = {
 \ 'css':['stylelint'],
 \ 'javascript': ['eslint'],
 \ 'jsx': ['eslint','stylelint'], 
-\ 'tsx': ['eslint','stylelint'], 
+\ 'tsx': ['tslint','stylelint'], 
 \ 'php': ['phpcs']
 \}
 
@@ -17,7 +17,7 @@ let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5 --p
 
 let g:ale_fixers = {
 \   'javascript': ['prettier','eslint'],
-\   'typescript': ['prettier','eslint'],
+\   'typescript': ['prettier','tslint'],
 \   'yaml': ['prettier'], 
 \   'json': ['prettier'], 
 \   'scss': ['prettier','stylelint'],
@@ -27,12 +27,16 @@ let g:ale_fixers = {
 \   'php': ['phpcbf'],
 \   'xml': ['xmllint']
 \}
-let g:ale_completion_enabled = 1
-
+let g:ale_completion_enabled = 0
+let g:ale_sign_column_always = 1
 " Set this setting in vimrc if you want to fix files automatically on save.
 " This is off by default.
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_enter = 0
+let g:ale_sign_error = '•'
+let g:ale_sign_warning = '•'
+let g:airline#extensions#ale#error_symbol='• '
+let g:airline#extensions#ale#warning_symbol='•  '
 nmap <silent> <leader>n :ALENext<cr>
 nmap <silent> <leader>m :ALEPrevious<cr>
 highlight ALEWarning ctermbg=Black

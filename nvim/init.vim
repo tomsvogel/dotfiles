@@ -12,7 +12,7 @@ Plug 'othree/html5.vim'
 Plug 'moll/vim-node'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-" Plug 'ternjs/tern_for_vim',{ 'for': ['javascript', 'javascript.jsx'] }
+Plug 'ternjs/tern_for_vim',{ 'for': ['javascript', 'javascript.jsx'] }
 " Plug 'ervandew/supertab'
 Plug 'plasticboy/vim-markdown'
 Plug 'cakebaker/scss-syntax.vim'
@@ -57,21 +57,21 @@ Plug 'epilande/vim-react-snippets'
 " Plug 'Raimondi/delimitMate'
 Plug 'jiangmiao/auto-pairs'
 Plug 'othree/xml.vim'
-Plug 'leafgarland/typescript-vim'
+" Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'roxma/nvim-yarp'
 Plug 'ncm2/ncm2'
-" Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
+Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
 Plug 'phpactor/ncm2-phpactor'
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-tmux'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-ultisnips'
-Plug 'autozimu/LanguageClient-neovim', {
-  \ 'branch': 'next',
-  \ 'do': 'bash install.sh',
-  \ }
+" Plug 'autozimu/LanguageClient-neovim', {
+"   \ 'branch': 'next',
+"   \ 'do': 'bash install.sh',
+"   \ }
 Plug 'Shougo/context_filetype.vim'
 " Plug 'autozimu/LanguageClient-neovim', {
 "     \ 'branch': 'next',
@@ -81,7 +81,7 @@ Plug 'Shougo/context_filetype.vim'
 Plug 'alvan/vim-closetag'
 " Linters
 Plug 'w0rp/ale'
-Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+" Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
 Plug 'rstacruz/vim-opinion'
 Plug 'rakr/vim-one'
@@ -134,17 +134,20 @@ map <leader>h :wincmd h<CR>
 map <leader>j :wincmd j<CR>
 map <leader>k :wincmd k<CR>
 map <leader>l :wincmd l<CR>:
-set ttyfast
-set lazyredraw
 
 set colorcolumn=80
-" augroup javascript_folding
-"     au!
-"     au FileType javascript setlocal foldmethod=syntax
-" augroup END
-" set conceallevel=1
 
+augroup javascript_folding
+    au!
+    au FileType javascript setlocal foldmethod=syntax
+augroup END
+set conceallevel=1
+autocmd FileType vim setlocal foldmethod=marker
+autocmd FileType vim setlocal foldlevel=0
+autocmd FileType javascript,html,css,scss,typescript setlocal foldlevel=99
+autocmd FileType javascript,typescript,typescript.tsx,json setl foldmethod=syntax
 
-
-" set foldcolumn=0
-" set signcolumn=no
+set ttyfast
+set lazyredraw
+set nocursorline
+set noshowcmd
