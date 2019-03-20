@@ -12,7 +12,7 @@ Plug 'othree/html5.vim'
 Plug 'moll/vim-node'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'ternjs/tern_for_vim',{ 'for': ['javascript', 'javascript.jsx'] }
+" Plug 'ternjs/tern_for_vim',{ 'for': ['javascript', 'javascript.jsx'] }
 " Plug 'ervandew/supertab'
 Plug 'plasticboy/vim-markdown'
 Plug 'cakebaker/scss-syntax.vim'
@@ -60,24 +60,23 @@ Plug 'othree/xml.vim'
 " Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2'
-Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
-Plug 'phpactor/ncm2-phpactor'
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-tmux'
-Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-ultisnips'
+" Plug 'roxma/nvim-yarp'
+" Plug 'ncm2/ncm2'
+" Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
+" Plug 'phpactor/ncm2-phpactor'
+" Plug 'ncm2/ncm2-bufword'
+" Plug 'ncm2/ncm2-tmux'
+" Plug 'ncm2/ncm2-path'
+" Plug 'ncm2/ncm2-ultisnips'
 " Plug 'autozimu/LanguageClient-neovim', {
 "   \ 'branch': 'next',
 "   \ 'do': 'bash install.sh',
 "   \ }
 Plug 'Shougo/context_filetype.vim'
-" Plug 'autozimu/LanguageClient-neovim', {
-"     \ 'branch': 'next',
-"     \ 'do': 'bash install.sh',
-"     \ }
-" Plug 'Shougo/neoinclude.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'kristijanhusak/deoplete-phpactor'
+
 Plug 'alvan/vim-closetag'
 " Linters
 Plug 'w0rp/ale'
