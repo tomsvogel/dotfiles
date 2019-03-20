@@ -4,7 +4,9 @@ set completeopt=noinsert,menuone,noselect
 inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
+let g:ncm2#complete_length= [[1,1],[7,2]]
+let g:ncm2#auto_popup = 1
+imap <C-Space> <Plug>(ncm2_manual_trigger)
 
 call ncm2#register_source({'name' : 'css',
             \ 'priority': 9, 
