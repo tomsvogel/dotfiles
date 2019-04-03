@@ -1,5 +1,5 @@
 " let g:UltiSnipsSnippetDirectories=["UltiSnips"]
-" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsExpandTrigger="<c-s>"
 " let g:UltiSnipsJumpForwardTrigger="<c-b>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 "
@@ -18,4 +18,4 @@
 " let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
 " let g:UltiSnipsRemoveSelectModeMappings = 0
 
-call deoplete#custom#source('ultisnips', 'matchers', ['matcher_fuzzy'])
+" call deoplete#custom#source('ultisnips', 'matchers', ['matcher_fuzzy'])

@@ -1,4 +1,4 @@
-sudo apt-get -y install  build-essential git i3 i3-wm i3blocks i3lock i3status suckless-tools gnome-flashback gnome-flashback-common libpcap-dev libnet1-dev rpcbind openssh-server nmap vlc ffmpeg vim gnome-tweak-tool zsh neovim wget curl fonts-powerline python3-pip nodejs apt net-tools owncloud-client terminator fonts-font-awesome arandr copyq tmux libgconf2-dev pulseaudio-utils xbacklight ninja-build gobject-introspection flameshot xclip
+sudo apt-get -y install  build-essential git i3 i3-wm i3blocks i3lock i3status suckless-tools gnome-flashback gnome-flashback-common libpcap-dev libnet1-dev rpcbind openssh-server nmap vlc ffmpeg vim gnome-tweak-tool zsh neovim wget curl fonts-powerline python3-pip nodejs apt net-tools owncloud-client terminator fonts-font-awesome arandr copyq tmux libgconf2-dev pulseaudio-utils xbacklight ninja-build gobject-introspection flameshot xclip xserver-xorg-input-synaptics npm rofi
 
 sudo snap install slack --classic
 sudo snap install chromium
@@ -6,23 +6,24 @@ sudo snap install spotify
 sudo snap install vscode --classic
 
 # copy .ssh config and dotfiles  from different computer
-scp -r toms@192.168.1.7:~/.ssh ~/
-scp -r toms@192.168.1.7:~/.dotfiles ~/
-
-ln -s ~/.dotfiles/nvim/ ~/.config/
+# scp -r toms@192.168.1.7:~/.ssh ~/
+# scp -r toms@192.168.1.7:~/.dotfiles ~/
+mkdir -p ~/.config/nvim
+ln -s ~/.dotfiles/nvim/init.vim ~/.config/nvim
+ln -s ~/.dotfiles/nvim/settings ~/.config/nvim
 ln -s ~/.dotfiles/i3/ ~/.config/
 
 #install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-ln -s ~/.dotfiles/.zshrc ~/.zshrc
+# ln -s ~/.dotfiles/.zshrc ~/.zshrc
 
 
 #switch to zsh
-zsh
+# zsh
 
 #install vim-plug 
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 
 #python

@@ -7,10 +7,11 @@ focus_follows_mouse no
 bindsym $mod+Shift+d kill
 
 # dmenu is how you start programs -- make it the same as vim command mode
-bindsym $mod+space exec dmenu_extended_run
+# bindsym $mod+space exec dmenu_extended_run
+bindsym $mod+space exec rofi -show run -eh 2 -padding 16
 
-bindsym $mod+Shift+T exec hyper 
-
+bindsym $mod+Shift+T exec terminator 
+bindsym $mod+Tab exec rofi -show window
 # i3 uses jkl; instead of hjkl -- fix that
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -53,17 +54,17 @@ bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
 # bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 
 # Media player controls
-bindsym Mod1+b exec playerctl previous
-bindsym Mod1+p exec playerctl play-pause
-bindsym Mod1+n exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
 
 # bindsym $mod+Tab exec --no-startup-id rofi -modi combi -combi-modi window -show combi
 # bindsym $mod+Tab exec "rofi -show combi run,window"
 # bindsym $mod+Tab workspace next
 # bindsym $mod+Shift+Tab workspace prev
 
-bindsym $mod+Tab exec /home/toms/.npm-global/bin/i3-alt-tab --next
-bindsym $mod+Shift+Tab exec /home/toms/.npm-global/bin/i3-alt-tab --prev
+# bindsym $mod+Tab exec /home/toms/.npm-global/bin/i3-alt-tab --next
+# bindsym $mod+Shift+Tab exec /home/toms/.npm-global/bin/i3-alt-tab --prev
 
 #switch to workspace
 bindsym $mod+1 workspace 1
@@ -135,8 +136,8 @@ mode "$mode_workplace" {
 set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3lock, mode "default"
-    # bindsym e exec --no-startup-id gnome-session-quit
-    bindsym e exec --no-startup-id i3-msg exit 
+    bindsym e exec --no-startup-id gnome-session-quit
+    # bindsym e exec --no-startup-id i3-msg exit 
     bindsym s exec --no-startup-id i3lock && systemctl suspend, mode "default"
     bindsym r exec --no-startup-id reboot
     bindsym Shift+s exec --no-startup-id systemctl poweroff
@@ -151,7 +152,7 @@ bindsym $mod+Shift+p exec flameshot gui
 
 # exec google-chrome
 
-for_window [class="Hyper"] move container to workspace 1
+for_window [class="Terminator"] move container to workspace 1
 for_window [class="Firefox"] move container to workspace 2
 for_window [class="Slack"] move container to workspace 9
 for_window [class="Nautilus"] move container to workspace 10
@@ -160,15 +161,16 @@ for_window [class="Mailspring"] move container to workspace 3
 for_window [class="^.*"] border pixel 1
 for_window [window_role="pop-up"] floating enable
 
-# exec --no-startup-id "setxkbmap -option caps:escape -option altwin:swap_lalt_lwin" 
-exec_always --no-startup-id "setxkbmap -layout de -variant mac_nodeadkeys -model mac -option caps:escape -option altwin:swap_lalt_lwin" 
-exec --no-startup-id "~/.dotfiles/single.sh" 
-exec --no-startup-id hyper 
+exec --no-startup-id "setxkbmap -option caps:escape -option altwin:swap_lalt_lwin" 
+#exec_always --no-startup-id "setxkbmap -layout de  -option caps:escape -option altwin:swap_lalt_lwin" 
+#exec --no-startup-id "~/.dotfiles/single.sh" 
+exec --no-startup-id terminator 
 exec --no-startup-id firefox 
 exec --no-startup-id nm-applet
 exec --no-startup-id slack
 exec --no-startup-id nautilus 
 exec --no-startup-id copyq 
+# exec --no-startup-id clipit 
 #disable middle click
 exec --no-startup-id 'xmodmap -e "pointer = 1 6 3 4 5 2"'
 #natural scroll and scroll speed
@@ -182,6 +184,7 @@ exec --no-startup-id synclient VertTwoFingerScroll=1
 exec --no-startup-id synclient VertScrollDelta=-30
 exec --no-startup-id synclient HorizTwoFingerScroll=1
 exec --no-startup-id mailspring 
+exec --no-startup-id xfce4-power-manager
 
 
 
