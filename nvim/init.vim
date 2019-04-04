@@ -8,6 +8,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Languages and libraries
 Plug 'JulesWang/css.vim'
 Plug 'genoma/vim-less'
+Plug 'elzr/vim-json'
 Plug 'othree/html5.vim'
 Plug 'moll/vim-node'
 Plug 'pangloss/vim-javascript'
