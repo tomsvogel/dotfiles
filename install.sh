@@ -43,7 +43,7 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 sudo apt-get update
 sudo apt-get -y install docker-ce
 
-sudo pip install docker-compose
+sudo pip3 install docker-compose
 sudo groupadd docker
 sudo usermod -aG docker $USER
 sudo systemctl enable docker
