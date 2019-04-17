@@ -80,6 +80,7 @@ bindsym $mod+0 workspace 10
 
 # workspace 1 output DP-1
 workspace 2 output DP-1
+workspace 2 output DP-2
 # workspace 10 output DP-1
 
 # move focused container to workspace
@@ -102,7 +103,7 @@ bindsym $mod+Shift+r restart
 bar {
   tray_output primary
   status_command conky
-    position top
+    position bottom
     font pango: hack, FontAwesome 9
 # font -*-proggysquaresz-medium-r-normal-*-10-80-*-*-*-*-iso8859-1
     status_command i3status --config ~/.config/i3/i3status.conf
@@ -118,20 +119,18 @@ bar {
 }
 
 
-set $mode_workplace Launch: [1]single [2]with 27 [3]with full HD Screen [4]Beamer mirrored [5]27 single [6]macKB [7]new macKB [8]internal KB
-bindsym $mod+Shift+m mode "$mode_workplace"
-
+set $mode_workplace Launch: [1]single [2]with 27 [3]with full HD Screen [4]Beamer mirrored [5]27 single [6]KB [7]home
 mode "$mode_workplace" {
     bindsym 1 exec ~/.dotfiles/single.sh, mode "default"
     bindsym 2 exec ~/.dotfiles/displayWith24.sh, mode "default"
     bindsym 3 exec ~/.dotfiles/displayWithFullHD.sh, mode "default"
     bindsym 4 exec ~/.dotfiles/displayBeamer.sh, mode "default"
     bindsym 5 exec ~/.dotfiles/single27.sh, mode "default"
-    bindsym 6 exec ~/.dotfiles/macKeyboard.sh, mode "default"
-    bindsym 7 exec ~/.dotfiles/macKeyboardNew.sh, mode "default"
-    bindsym 8 exec ~/.dotfiles/defaultKeyboard.sh, mode "default"
+    bindsym 6 exec ~/.dotfiles/keyboard.sh, mode "default"
+    bindsym 7 exec ~/.dotfiles/home.sh, mode "default"
     bindsym Escape mode "default"
 }
+bindsym $mod+Shift+m mode "$mode_workplace"
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {

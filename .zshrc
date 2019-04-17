@@ -76,13 +76,12 @@ alias toTproSimulate='rsync -avu --delete --progress --dry-run --exclude "node_m
 alias fromTpro='rsync -avu --delete --progress --exclude "node_modules" toms@tpro1.arkulp.at:$PWD $(dirname "$PWD")'
 alias fromTproSimulate='rsync -avu --delete --progress --dry-run --exclude "node_modules" toms@tpro1.arkulp.at:$PWD $(dirname "$PWD")'
 
-alias avc='code -a '
 alias mongoForward='ssh -fN -L 9999:localhost:27017' 
 alias sqlForward='ssh -fN -L 9998:localhost:3306' 
 alias python=python3
 alias pip=pip3
 export EDITOR=vim
-
+alias avc='code -a '
 # pyenv
 # export LDFLAGS="-L/usr/local/opt/zlib/lib"
 # export CPPFLAGS="-I/usr/local/opt/zlib/include"
@@ -114,3 +113,4 @@ source <(kubectl completion zsh)
 # }
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+printf "[?20041"
