@@ -23,11 +23,7 @@ case "$(uname -s)" in
      echo 'other OS' 
      ;;
 esac
-DISABLE_AUTO_UPDATE=true
-HISTSIZE=1000
-SAVEHIST=1000
 ZSH_THEME="avit"
-ZSH_DISABLE_COMPFIX=true
 
 # plugins=(zsh-autosuggestions kubectl docker)
 plugins=(zsh-autosuggestions docker)
@@ -113,4 +109,6 @@ source <(kubectl completion zsh)
 # }
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-printf "[?20041"
+
+autoload -Uz compinit
+compinit

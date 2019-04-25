@@ -149,6 +149,7 @@ bindsym $mod+Shift+u mode "$mode_system"
 bindsym $mod+shift+v exec "copyq toggle"
 bindsym $mod+Shift+p exec flameshot gui 
 
+bindsym $mod+Ctrl+p exec --no-startup-id ~/.dotfiles/cpu-gov.sh
 # exec google-chrome
 
 for_window [class="Terminator"] move container to workspace 1
@@ -186,7 +187,4 @@ exec --no-startup-id mailspring
 exec --no-startup-id xfce4-power-manager
 
 
-
-
-#output eDP-1 scale 
 
