@@ -1,0 +1,28 @@
+{
+  "suggest.echodocSupport": true,
+  "suggest.maxCompleteItemCount": 20,
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact","Markdown","php"],
+  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"],
+  "css.filetypes": ["css", "less", "scss", "javascript", "typescript", "typescriptreact", "javascriptreact"],
+  "diagnostic.errorSign": "•",
+  "diagnostic.warningSign": "•",
+  "diagnostic.infoSign": "•",
+  "prettier.useTabs": false,
+  "prettier.printWidth": 120,
+  "prettier.tabWidth": 2,
+  "prettier.singleQuote": true,
+  "prettier.bracketSpacing": false,
+  "prettier.jsxBracketSameLine": true,
+  "prettier.eslintIntegration": true,
+  "prettier.trailingComma": "es5",
+  "prettier.stylelintIntegration":true,
+
+ "languageserver": {
+    "phplang": {
+      "command": "php",
+      "args": ["~/.config/composer/vendor/felixfbecker/language-server/bin/php-language-server.php"],
+
+      "filetypes": ["php"]
+    }
+  }
+}

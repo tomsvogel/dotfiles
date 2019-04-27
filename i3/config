@@ -119,15 +119,14 @@ bar {
 }
 
 
-set $mode_workplace Launch: [1]single [2]with 27 [3]with full HD Screen [4]Beamer mirrored [5]27 single [6]KB [7]home
+set $mode_workplace Launch: [1]single [2]27 [3]with full HD Screen [4]keyboard [5]mac [6]Keyboard Beamer
 mode "$mode_workplace" {
     bindsym 1 exec ~/.dotfiles/single.sh, mode "default"
-    bindsym 2 exec ~/.dotfiles/displayWith24.sh, mode "default"
-    bindsym 3 exec ~/.dotfiles/displayWithFullHD.sh, mode "default"
-    bindsym 4 exec ~/.dotfiles/displayBeamer.sh, mode "default"
-    bindsym 5 exec ~/.dotfiles/single27.sh, mode "default"
-    bindsym 6 exec ~/.dotfiles/keyboard.sh, mode "default"
-    bindsym 7 exec ~/.dotfiles/home.sh, mode "default"
+    bindsym 2 exec ~/.dotfiles/single27.sh, mode "default"
+    bindsym 3 exec ~/.dotfiles/displayWith24.sh, mode "default"
+    bindsym 4 exec ~/.dotfiles/keyboard.sh, mode "default"
+    bindsym 5 exec ~/.dotfiles/macKeyboard.sh, mode "default"
+    bindsym 6 exec ~/.dotfiles/displayBeamer.sh, mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+Shift+m mode "$mode_workplace"

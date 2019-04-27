@@ -46,12 +46,12 @@
 " "
 " " call deoplete#custom#option('num_processes', 1)
 
-autocmd FileType css,sass,scss,js,tsx setlocal omnifunc=csscomplete#CompleteCSS
-" deoplete + neosnippet + autopairs changes 
-let g:AutoPairsMapCR=0 
-" let g:deoplete#auto_complete_start_length = 1 
-let g:deoplete#enable_at_startup = 1 
-let g:deoplete#enable_smart_case = 1 
-imap <expr><TAB> pumvisible() ? "\<C-n>" : (neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>") 
-imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
-imap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>\<Plug>AutoPairsReturn"
+" autocmd FileType css,sass,scss,js,tsx setlocal omnifunc=csscomplete#CompleteCSS
+" " deoplete + neosnippet + autopairs changes 
+" let g:AutoPairsMapCR=0 
+" " let g:deoplete#auto_complete_start_length = 1 
+" let g:deoplete#enable_at_startup = 1 
+" let g:deoplete#enable_smart_case = 1 
+" imap <expr><TAB> pumvisible() ? "\<C-n>" : (neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>") 
+" imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+" imap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>\<Plug>AutoPairsReturn"

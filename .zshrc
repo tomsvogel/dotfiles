@@ -3,7 +3,7 @@ case "$(uname -s)" in
    Darwin)
      export ZSH="/Users/toms/.oh-my-zsh"
 
-      
+
      # The next line updates PATH for the Google Cloud SDK.
      if [ -f '/Users/toms/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/toms/google-cloud-sdk/path.zsh.inc'; fi
 
@@ -20,7 +20,7 @@ case "$(uname -s)" in
      if [ -f '/home/toms/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/toms/google-cloud-sdk/completion.zsh.inc'; fi
      ;;
    *)
-     echo 'other OS' 
+     echo 'other OS'
      ;;
 esac
 ZSH_THEME="avit"
@@ -57,14 +57,14 @@ alias cpu_psave='sudo cpufreq-set -r -g powersave'
 alias cpu_perf='sudo cpufreq-set -r -g performance'
 alias cpu_info='cpufreq-info'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PATH=~/.npm-global/bin:$PATH 
+export PATH=~/.npm-global/bin:$PATH
 # #go path
 # export PATH=$PATH:$(go env GOPATH)/bin
 # export GOPATH=$(go env GOPATH)
 # locale settings
 export LC_ALL=en_US.UTF-8
 
-export PATH=~/bin:~/.local/bin:$PATH 
+export PATH=~/bin:~/.local/bin:$PATH
 
 alias toTpro='rsync -avu --delete --progress --exclude "node_modules" $PWD toms@tpro1.arkulp.at:$(dirname "$PWD")'
 alias toTproSimulate='rsync -avu --delete --progress --dry-run --exclude "node_modules" $PWD toms@tpro1.arkulp.at:$(dirname "$PWD")'
@@ -72,8 +72,8 @@ alias toTproSimulate='rsync -avu --delete --progress --dry-run --exclude "node_m
 alias fromTpro='rsync -avu --delete --progress --exclude "node_modules" toms@tpro1.arkulp.at:$PWD $(dirname "$PWD")'
 alias fromTproSimulate='rsync -avu --delete --progress --dry-run --exclude "node_modules" toms@tpro1.arkulp.at:$PWD $(dirname "$PWD")'
 
-alias mongoForward='ssh -fN -L 9999:localhost:27017' 
-alias sqlForward='ssh -fN -L 9998:localhost:3306' 
+alias mongoForward='ssh -fN -L 9999:localhost:27017'
+alias sqlForward='ssh -fN -L 9998:localhost:3306'
 alias python=python3
 alias pip=pip3
 export EDITOR=vim
@@ -95,7 +95,7 @@ case "$(uname -s)" in
 esac
 
 function k8sconfig () {
-    KUBECONFIG=~/.kube/config:~/.kube/eventz-cluster-kubeconfig.yaml:~/.kube/aps-kubeconfig.yaml:~/.kube/crate_config_user:~/.kube/crate_kubeconfig_shared kubectl config view --flatten > mergedkub && mv mergedkub ~/.kube/config
+    KUBECONFIG=~/.kube/config:~/.kube/kibana-kubeconfig.yaml:~/.kube/eventz-cluster-kubeconfig.yaml:~/.kube/aps-kubeconfig.yaml:~/.kube/crate_config_user:~/.kube/crate_kubeconfig_shared kubectl config view --flatten > mergedkub && mv mergedkub ~/.kube/config
   }
 source <(kubectl completion zsh)
 # mac
