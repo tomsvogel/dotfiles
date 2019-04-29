@@ -473,3 +473,5 @@ set nofoldenable    " disable folding
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 set cmdheight=2
+
+" :CocInstall coc-json coc-html coc-css coc-tsserver coc-eslint coc-yaml coc-html
