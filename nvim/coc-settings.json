@@ -17,11 +17,10 @@
   "prettier.trailingComma": "es5",
   "prettier.stylelintIntegration":true,
 
- "languageserver": {
+  "languageserver": {
     "phplang": {
       "command": "php",
-      "args": ["~/.config/composer/vendor/felixfbecker/language-server/bin/php-language-server.php"],
-
+      "args": ["/Users/toms/.config/nvim/plugged/LanguageServer-php-neovim/vendor/felixfbecker/language-server/bin/php-language-server.php"],
       "filetypes": ["php"]
     }
   }
