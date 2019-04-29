@@ -10,7 +10,7 @@ bindsym $mod+Shift+d kill
 # bindsym $mod+space exec dmenu_extended_run
 bindsym $mod+space exec rofi -show run -eh 2 -padding 16
 
-bindsym $mod+Shift+T exec terminator 
+bindsym $mod+Shift+T exec terminator
 bindsym $mod+Tab exec rofi -show window
 # i3 uses jkl; instead of hjkl -- fix that
 bindsym $mod+h focus left
@@ -30,16 +30,16 @@ bindsym Control+minus  split vertical
 bindsym Control+Shift+h move workspace to output left
 bindsym Control+Shift+l move workspace to output right
 bindsym Control+Shift+j move workspace to output down
-bindsym Control+Shift+k move workspace to output up 
+bindsym Control+Shift+k move workspace to output up
 # bindsym $mod+n move workspace to output right
-# bindsym $mod+Shift+up move workspace to output up 
+# bindsym $mod+Shift+up move workspace to output up
 # bindsym Control+Shift+left move workspace to output left
-# bindsym Control+Shift+right move workspace to output right 
+# bindsym Control+Shift+right move workspace to output right
 # bindsym $mod+Shift+right move workspace to output right
 bindsym Control+Shift+m fullscreen toggle
 
 # bindsym Control+h workspace prev
-# bindsym Control+l workspace next 
+# bindsym Control+l workspace next
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master -q 5%+ #increase sound volume
@@ -119,7 +119,7 @@ bar {
 }
 
 
-set $mode_workplace Launch: [1]single [2]27 [3]with full HD Screen [4]keyboard [5]mac [6]Keyboard Beamer
+set $mode_workplace Launch: [1]single [2]27 [3]with full HD Screen [4]keyboard [5]mac Keyboard [6]Beamer
 mode "$mode_workplace" {
     bindsym 1 exec ~/.dotfiles/single.sh, mode "default"
     bindsym 2 exec ~/.dotfiles/single27.sh, mode "default"
@@ -135,7 +135,7 @@ set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s)
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3lock, mode "default"
     bindsym e exec --no-startup-id gnome-session-quit
-    # bindsym e exec --no-startup-id i3-msg exit 
+    # bindsym e exec --no-startup-id i3-msg exit
     bindsym s exec --no-startup-id i3lock && systemctl suspend, mode "default"
     bindsym r exec --no-startup-id reboot
     bindsym Shift+s exec --no-startup-id systemctl poweroff
@@ -146,7 +146,7 @@ mode "$mode_system" {
 bindsym $mod+Shift+u mode "$mode_system"
 
 bindsym $mod+shift+v exec "copyq toggle"
-bindsym $mod+Shift+p exec flameshot gui 
+bindsym $mod+Shift+p exec flameshot gui
 
 bindsym $mod+Ctrl+p exec --no-startup-id ~/.dotfiles/cpu-gov.sh
 # exec google-chrome
@@ -160,16 +160,16 @@ for_window [class="Franz"] move container to workspace 3
 for_window [class="^.*"] border pixel 1
 for_window [window_role="pop-up"] floating enable
 
-exec --no-startup-id "setxkbmap -option caps:escape -option altwin:swap_lalt_lwin" 
-#exec_always --no-startup-id "setxkbmap -layout de  -option caps:escape -option altwin:swap_lalt_lwin" 
-#exec --no-startup-id "~/.dotfiles/single.sh" 
-exec --no-startup-id terminator 
-exec --no-startup-id firefox 
+exec --no-startup-id "setxkbmap -option caps:escape -option altwin:swap_lalt_lwin"
+#exec_always --no-startup-id "setxkbmap -layout de  -option caps:escape -option altwin:swap_lalt_lwin"
+#exec --no-startup-id "~/.dotfiles/single.sh"
+exec --no-startup-id terminator
+exec --no-startup-id firefox
 exec --no-startup-id nm-applet
 exec --no-startup-id slack
-exec --no-startup-id nautilus 
-exec --no-startup-id copyq 
-# exec --no-startup-id clipit 
+exec --no-startup-id nautilus
+exec --no-startup-id copyq
+# exec --no-startup-id clipit
 #disable middle click
 exec --no-startup-id 'xmodmap -e "pointer = 1 6 3 4 5 2"'
 #natural scroll and scroll speed
@@ -182,8 +182,8 @@ exec --no-startup-id synclient RightButtonAreaTop=0
 exec --no-startup-id synclient VertTwoFingerScroll=1
 exec --no-startup-id synclient VertScrollDelta=-30
 exec --no-startup-id synclient HorizTwoFingerScroll=1
-# exec --no-startup-id mailspring 
-exec --no-startup-id franz 
+# exec --no-startup-id mailspring
+exec --no-startup-id franz
 exec --no-startup-id xfce4-power-manager
 
 

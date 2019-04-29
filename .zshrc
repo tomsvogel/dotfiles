@@ -95,7 +95,7 @@ case "$(uname -s)" in
 esac
 
 function k8sconfig () {
-    KUBECONFIG=~/.kube/config:~/.kube/kibana-kubeconfig.yaml:~/.kube/eventz-cluster-kubeconfig.yaml:~/.kube/aps-kubeconfig.yaml:~/.kube/crate_config_user:~/.kube/crate_kubeconfig_shared kubectl config view --flatten > mergedkub && mv mergedkub ~/.kube/config
+    KUBECONFIG=~/.kube/config:~/.kube/eventz-cluster-kubeconfig.yaml:~/.kube/aps-kubeconfig.yaml:~/.kube/crate_config_user:~/.kube/crate_kubeconfig_shared kubectl config view --flatten > mergedkub && mv mergedkub ~/.kube/config
   }
 source <(kubectl completion zsh)
 # mac
