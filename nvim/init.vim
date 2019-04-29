@@ -229,8 +229,8 @@ set conceallevel=1
 "
 set ttyfast
 set lazyredraw
-set nocursorline
-set noshowcmd
+" set nocursorline
+" set noshowcmd
 
 
 try
@@ -473,5 +473,11 @@ set nofoldenable    " disable folding
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 set cmdheight=2
+set number
+set tabstop=2
+set shiftwidth=2
+set expandtab
 
 " :CocInstall coc-json coc-html coc-css coc-tsserver coc-eslint coc-yaml coc-html
+"
+"
