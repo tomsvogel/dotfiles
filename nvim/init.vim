@@ -226,6 +226,7 @@ set conceallevel=1
 " autocmd FileType javascript,html,css,scss,typescript setlocal foldlevel=99
 " autocmd FileType javascript,typescript,typescript.tsx,json setl foldmethod=syntax
 "
+"
 set ttyfast
 set lazyredraw
 set nocursorline
@@ -286,6 +287,9 @@ function! s:profile(opts) abort
 endfunction
 
 call s:profile(s:denite_options)
+
+nnoremap <C-p> :<C-u>Denite file/rec<CR>
+nnoremap <C-e> :<C-u>Denite buffer<CR>
 catch
   echo 'Denite not installed. It should work after running :PlugInstall'
 endtry
@@ -442,7 +446,7 @@ catch
 endtry
 
 " Vim airline theme
-let g:airline_theme='space'
+let g:airline_theme='wombat'
 " buffers
 :nmap ä :bnext<CR>
 :nmap ö :bprev<CR>
@@ -451,3 +455,4 @@ let g:airline_theme='space'
 set nofoldenable    " disable folding
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
+set cmdheight=2
