@@ -290,6 +290,23 @@ call s:profile(s:denite_options)
 
 nnoremap <C-p> :<C-u>Denite file/rec<CR>
 nnoremap <C-e> :<C-u>Denite buffer<CR>
+
+call denite#custom#map(
+	      \ 'insert',
+	      \ '<C-j>',
+	      \ '<denite:move_to_next_line>',
+	      \ 'noremap'
+	      \)
+call denite#custom#map(
+	      \ 'insert',
+	      \ '<C-k>',
+	      \ '<denite:move_to_previous_line>',
+	      \ 'noremap'
+	      \)
+call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>',
+\'noremap')
+call denite#custom#map('insert', '<C-h>', '<denite:do_action:split>',
+\'noremap')
 catch
   echo 'Denite not installed. It should work after running :PlugInstall'
 endtry
@@ -394,9 +411,9 @@ let g:used_javascript_libs = 'underscore,requirejs,chai,jquery'
 let g:signify_sign_delete = '-'
 
 " === coc.nvim === "
-nmap <silent> <leader>dd <Plug>(coc-definition)
-nmap <silent> <leader>dr <Plug>(coc-references)
-nmap <silent> <leader>dj <Plug>(coc-implementation)
+nmap <silent>gd <Plug>(coc-definition)
+nmap <silent>gr <Plug>(coc-references)
+nmap <silent>gi <Plug>(coc-implementation)
 
 " === vim-better-whitespace === "
 "   <leader>y - Automatically remove trailing whitespace
