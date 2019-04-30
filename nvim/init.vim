@@ -79,6 +79,7 @@ Plug 'scrooloose/nerdtree'
 
 " Colorscheme
 Plug 'mhartington/oceanic-next'
+Plug 'kaicataldo/material.vim'
 
 " Customized vim status line
 Plug 'vim-airline/vim-airline'
@@ -457,7 +458,9 @@ set termguicolors
 " Editor theme
 set background=dark
 try
-  colorscheme OceanicNext
+  " colorscheme OceanicNext
+ colorscheme material
+ let g:airline_theme = 'material'
 catch
   colorscheme slate
 endtry
