@@ -460,13 +460,12 @@ set background=dark
 try
   " colorscheme OceanicNext
  colorscheme material
+" Vim airline theme
  let g:airline_theme = 'material'
 catch
   colorscheme slate
 endtry
 
-" Vim airline theme
-let g:airline_theme='wombat'
 " buffers
 :nmap ä :bnext<CR>
 :nmap ö :bprev<CR>
