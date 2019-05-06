@@ -10,7 +10,8 @@ bindsym $mod+Shift+d kill
 # bindsym $mod+space exec dmenu_extended_run
 bindsym $mod+space exec rofi -show run -eh 2 -padding 16
 
-bindsym $mod+Shift+T exec terminator
+# bindsym $mod+Shift+T exec terminator
+bindsym $mod+Shift+T exec hyper
 bindsym $mod+Tab exec rofi -show window
 # i3 uses jkl; instead of hjkl -- fix that
 bindsym $mod+h focus left
@@ -151,7 +152,8 @@ bindsym $mod+Shift+p exec flameshot gui
 bindsym $mod+Ctrl+p exec --no-startup-id ~/.dotfiles/cpu-gov.sh
 # exec google-chrome
 
-for_window [class="Terminator"] move container to workspace 1
+# for_window [class="Terminator"] move container to workspace 1
+for_window [class="Hyper"] move container to workspace 1
 for_window [class="Firefox"] move container to workspace 2
 for_window [class="Slack"] move container to workspace 9
 for_window [class="Nautilus"] move container to workspace 10
@@ -163,7 +165,8 @@ for_window [window_role="pop-up"] floating enable
 exec --no-startup-id "setxkbmap -option caps:escape -option altwin:swap_lalt_lwin"
 #exec_always --no-startup-id "setxkbmap -layout de  -option caps:escape -option altwin:swap_lalt_lwin"
 #exec --no-startup-id "~/.dotfiles/single.sh"
-exec --no-startup-id terminator
+# exec --no-startup-id terminator
+exec --no-startup-id hyper
 exec --no-startup-id firefox
 exec --no-startup-id nm-applet
 exec --no-startup-id slack
