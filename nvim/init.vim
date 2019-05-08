@@ -416,6 +416,8 @@ nmap <silent>gd <Plug>(coc-definition)
 nmap <silent>gr <Plug>(coc-references)
 nmap <silent>gi <Plug>(coc-implementation)
 
+nmap <leader>m <Plug>(coc-diagnostic-prev)
+nmap <leader>n <Plug>(coc-diagnostic-next)
 " === vim-better-whitespace === "
 "   <leader>y - Automatically remove trailing whitespace
 nmap <leader>y :StripWhitespace<CR>
@@ -479,7 +481,8 @@ set number
 set tabstop=2
 set shiftwidth=2
 set expandtab
-
+set textwidth=0
+set wrapmargin=0
 " :CocInstall coc-json coc-html coc-css coc-tsserver coc-eslint coc-yaml coc-html
 "
 "
