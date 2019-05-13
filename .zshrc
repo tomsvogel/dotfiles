@@ -26,7 +26,7 @@ esac
 ZSH_THEME="avit"
 
 # plugins=(zsh-autosuggestions kubectl docker)
-plugins=(zsh-autosuggestions docker)
+plugins=(zsh-autosuggestions docker npm)
 
 source $ZSH/oh-my-zsh.sh
 

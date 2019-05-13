@@ -291,6 +291,7 @@ call s:profile(s:denite_options)
 
 nnoremap <C-p> :<C-u>Denite file/rec<CR>
 nnoremap <C-e> :<C-u>Denite buffer<CR>
+nnoremap <Leader>e :<C-u>Denite buffer<CR>
 
 call denite#custom#map(
 	      \ 'insert',
