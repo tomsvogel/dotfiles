@@ -95,18 +95,18 @@ case "$(uname -s)" in
 esac
 
 function k8sconfig () {
-    KUBECONFIG=~/.kube/config:~/.kube/php-kubeconfig.yaml:~/.kube/eventz-cluster-kubeconfig.yaml:~/.kube/aps-kubeconfig.yaml:~/.kube/crate_config_user:~/.kube/crate_kubeconfig_shared kubectl config view --flatten > mergedkub && mv mergedkub ~/.kube/config
+    KUBECONFIG=~/.kube/config:~/.kube/chips-kubeconfig.yaml:~/.kube/eventz-cluster-kubeconfig.yaml:~/.kube/aps-kubeconfig.yaml:~/.kube/crate_config_user:~/.kube/crate_kubeconfig_shared kubectl config view --flatten > mergedkub && mv mergedkub ~/.kube/config
   }
-source <(kubectl completion zsh)
+# source <(kubectl completion zsh)
 # mac
-# function kubectl() {
-#
-#     if ! type __start_kubectl >/dev/null 2>&1; then
-#         source <(command kubectl completion zsh)
-#     fi
-#
-#     command kubectl "$@"
-# }
+function kubectl() {
+
+    if ! type __start_kubectl >/dev/null 2>&1; then
+        source <(command kubectl completion zsh)
+    fi
+
+    command kubectl "$@"
+}
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 

@@ -2,7 +2,7 @@ module.exports = {
   config: {
     // default font size in pixels for all tabs
     fontSize: 13,
-
+fontWidth:'bold',
     // font family with optional fallbacks
     fontFamily: 'Hack,"DejaVu Sans Mono", "Lucida Console", monospace',
 
