@@ -210,11 +210,6 @@ set nocompatible                  " Must come first because it changes other opt
 " let g:python_host_skip_check = 1
 " let g:python3_host_skip_check = 1
 
-map <leader>h :wincmd h<CR>
-map <leader>j :wincmd j<CR>
-map <leader>k :wincmd k<CR>
-map <leader>l :wincmd l<CR>:
-
 set colorcolumn=80
 
 " augroup javascript_folding
@@ -487,3 +482,9 @@ set wrapmargin=0
 " :CocInstall coc-json coc-html coc-css coc-tsserver coc-eslint coc-yaml coc-html
 "
 "
+map <leader>h :wincmd h<CR>
+map <leader>j :wincmd j<CR>
+map <leader>k :wincmd k<CR>
+map <leader>l :wincmd l<CR>
+
+set nowrap
