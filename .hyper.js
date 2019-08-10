@@ -1,10 +1,12 @@
 module.exports = {
   config: {
+    materialshell: {
+      theme: 'oceanic',
+    },
     // default font size in pixels for all tabs
-    fontSize: 13,
-fontWidth:'bold',
+    fontSize: 15,
     // font family with optional fallbacks
-    fontFamily: 'Hack,"DejaVu Sans Mono", "Lucida Console", monospace',
+    fontFamily: ' Hack,"DejaVu Sans Mono", "Lucida Console", monospace',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: 'rgba(248,28,229,0.8)',
@@ -36,11 +38,18 @@ fontWidth:'bold',
       .terms_termsShifted {
         margin-top: 30px;
       }
+}
     `,
 
     // custom css to embed in the terminal window
-    termCSS: '',
-
+    termCSS: `
+    
+      .unicode-node {
+        display: inline-block;
+        vertical-align: top;
+        width: 8.4px;}
+    
+    `,
     // set to `true` if you're using a Linux set up
     // that doesn't shows native menus
     // default: `false` on Linux, `true` on Windows (ignored on macOS)
@@ -52,7 +61,7 @@ fontWidth:'bold',
     showWindowControls: 'false',
 
     // custom padding (css format, i.e.: `top right bottom left`)
-    padding: '5px 5px',
+    padding: '2px 2px',
 
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide
@@ -105,7 +114,7 @@ fontWidth:'bold',
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: ['hyper-hide-tabs', 'hyperminimal', 'hyper-hide-title', 'hyper-night-owl'],
+  plugins: ['hyper-hide-tabs', 'hyperminimal', 'hyper-hide-title', 'hyper-materialshell', 'hyper-font-smoothing'],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here

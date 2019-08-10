@@ -23,7 +23,8 @@ case "$(uname -s)" in
      echo 'other OS'
      ;;
 esac
-ZSH_THEME="avit"
+# ZSH_THEME="avit"
+ZSH_THEME="materialshell"
 
 # plugins=(zsh-autosuggestions kubectl docker)
 plugins=(zsh-autosuggestions docker npm)
@@ -48,7 +49,7 @@ alias gpush='git push'
 alias grebaseMaster='git rebase origin/master'
 alias grebaseMasterInteractive='git rebase -i origin/master'
 alias gfixup='git commit --fixup $(git rev-parse HEAD)'
-
+alias gorigin='git remote -v'
 function portUsage () {
   sudo lsof -i tcp:"$1"
 }
@@ -63,13 +64,13 @@ export PATH=~/.npm-global/bin:$PATH
 # export GOPATH=$(go env GOPATH)
 # locale settings
 export LC_ALL=en_US.UTF-8
+export LANG="en_US.UTF-8"
 
 export PATH=~/bin:~/.local/bin:$PATH
-
 alias toTpro='rsync -avu --delete --progress --exclude "node_modules" $PWD toms@tpro1.arkulp.at:$(dirname "$PWD")'
 alias toTproSimulate='rsync -avu --delete --progress --dry-run --exclude "node_modules" $PWD toms@tpro1.arkulp.at:$(dirname "$PWD")'
 
-alias fromTpro='rsync -avu --delete --progress --exclude "node_modules" toms@tpro1.arkulp.at:$PWD $(dirname "$PWD")'
+alias fromTpro='rsync -avu --delete --progress --exclude "node_modules" toms@192.168.1.11:$PWD $(dirname "$PWD")'
 alias fromTproSimulate='rsync -avu --delete --progress --dry-run --exclude "node_modules" toms@tpro1.arkulp.at:$PWD $(dirname "$PWD")'
 
 alias mongoForward='ssh -fN -L 9999:localhost:27017'
@@ -95,7 +96,7 @@ case "$(uname -s)" in
 esac
 
 function k8sconfig () {
-    KUBECONFIG=~/.kube/config:~/.kube/chips-kubeconfig.yaml:~/.kube/eventz-cluster-kubeconfig.yaml:~/.kube/aps-kubeconfig.yaml:~/.kube/crate_config_user:~/.kube/crate_kubeconfig_shared kubectl config view --flatten > mergedkub && mv mergedkub ~/.kube/config
+    KUBECONFIG=~/.kube/config_default:~/.kube/saem-kubeconfig.yaml:~/.kube/chips-kubeconfig.yaml:~/.kube/eventz-cluster-kubeconfig.yaml:~/.kube/aps-kubeconfig.yaml:~/.kube/crate_config_user:~/.kube/crate_kubeconfig_shared kubectl config view --flatten > mergedkub && mv mergedkub ~/.kube/config
   }
 # source <(kubectl completion zsh)
 # mac
@@ -109,6 +110,13 @@ function kubectl() {
 }
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 autoload -Uz compinit
 compinit
+# fnm
+eval "$(fnm env --multi)"

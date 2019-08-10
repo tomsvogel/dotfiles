@@ -3,6 +3,7 @@
 " setting file is more readable and more usable.
 let mapleader=","
 
+set encoding=utf-8
 let plugpath = expand('<sfile>:p:h'). '/autoload/plug.vim'
 if !filereadable(plugpath)
     if executable('curl')
@@ -33,13 +34,14 @@ Plug 'easymotion/vim-easymotion'
 " Plug 'neoclide/coc.nvim', { 'do': 'yarn install' }
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
-Plug 'evandotpro/vim-php-syntax-check'
 " Tmux/Neovim movement integration
 Plug 'christoomey/vim-tmux-navigator'
 
 " Denite - Fuzzy finding, buffer management
-Plug 'Shougo/denite.nvim'
+" Plug 'Shougo/denite.nvim'
 
+Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
+Plug 'jremmen/vim-ripgrep'
 " Snippet support
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
@@ -54,10 +56,14 @@ Plug 'tpope/vim-fugitive'
 
 " === Javascript Plugins === "
 " Typescript syntax highlighting
-Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'HerringtonDarkholme/yats.vim'
 
 " ReactJS JSX syntax highlighting
-Plug 'mxw/vim-jsx'
+" Plug 'mxw/vim-jsx'
+Plug 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'peitalin/vim-jsx-typescript'
 
 " Generate JSDoc commands based on function signature
 Plug 'heavenshell/vim-jsdoc'
@@ -71,7 +77,7 @@ Plug 'chr4/nginx.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 
 " Improved syntax highlighting and indentation
-Plug 'othree/yajs.vim'
+" Plug 'othree/yajs.vim'
 
 " === UI === "
 " File explorer
@@ -86,7 +92,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 
-
+Plug 'tpope/vim-surround'
 
 " Languages and libraries
 " Plug 'JulesWang/css.vim'
@@ -168,7 +174,6 @@ Plug 'eugen0329/vim-esearch'
 
 " Plug 'rstacruz/vim-opinion'
 " Plug 'rakr/vim-one'
-" color
 call plug#end()
 
 " ========================================
@@ -194,7 +199,7 @@ for fpath in split(globpath('~/.config/nvim/settings', '*.vim'), '\n')
 endfor
 if has('mac')       " osx
   set clipboard=unnamed
-  let g:python3_host_prog = '/Users/toms/.pyenv/shims/python'
+  " let g:python3_host_prog = '/Users/toms/.pyenv/shims/python'
 else                " linux, bsd, etc
   set clipboard=unnamedplus
   " let g:python3_host_prog = '/home/toms/.pyenv/shims/python'
@@ -225,103 +230,130 @@ set conceallevel=1
 "
 set ttyfast
 set lazyredraw
-" set nocursorline
+set nocursorline
+set nocursorcolumn
 " set noshowcmd
 
-
-try
-
-call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git'])
-
-" Use ripgrep in place of "grep"
-call denite#custom#var('grep', 'command', ['rg'])
-
-" Custom options for ripgrep
-"   --vimgrep:  Show results with every match on it's own line
-"   --hidden:   Search hidden directories and files
-"   --heading:  Show the file name above clusters of matches from each file
-"   --S:        Search case insensitively if the pattern is all lowercase
-call denite#custom#var('grep', 'default_opts', ['--hidden', '--vimgrep', '--heading', '-S'])
-
-" Recommended defaults for ripgrep via Denite docs
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
-
-" Remove date from buffer list
-call denite#custom#var('buffer', 'date_format', '')
-
-" Custom options for Denite
-"   auto_resize             - Auto resize the Denite window height automatically.
-"   prompt                  - Customize denite prompt
-"   direction               - Specify Denite window direction as directly below current pane
-"   winminheight            - Specify min height for Denite window
-"   highlight_mode_insert   - Specify h1-CursorLine in insert mode
-"   prompt_highlight        - Specify color of prompt
-"   highlight_matched_char  - Matched characters highlight
-"   highlight_matched_range - matched range highlight
-let s:denite_options = {'default' : {
-\ 'auto_resize': 1,
-\ 'prompt': 'λ:',
-\ 'direction': 'rightbelow',
-\ 'winminheight': '10',
-\ 'highlight_mode_insert': 'Visual',
-\ 'highlight_mode_normal': 'Visual',
-\ 'prompt_highlight': 'Function',
-\ 'highlight_matched_char': 'Function',
-\ 'highlight_matched_range': 'Normal'
-\ }}
-
-" Loop through denite options and enable them
-function! s:profile(opts) abort
-  for l:fname in keys(a:opts)
-    for l:dopt in keys(a:opts[l:fname])
-      call denite#custom#option(l:fname, l:dopt, a:opts[l:fname][l:dopt])
-    endfor
-  endfor
-endfunction
-
-call s:profile(s:denite_options)
-
-nnoremap <C-p> :<C-u>Denite file/rec<CR>
-nnoremap <C-e> :<C-u>Denite buffer<CR>
-nnoremap <Leader>e :<C-u>Denite buffer<CR>
-
-call denite#custom#map(
-	      \ 'insert',
-	      \ '<C-j>',
-	      \ '<denite:move_to_next_line>',
-	      \ 'noremap'
-	      \)
-call denite#custom#map(
-	      \ 'insert',
-	      \ '<C-k>',
-	      \ '<denite:move_to_previous_line>',
-	      \ 'noremap'
-	      \)
-call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>',
-\'noremap')
-call denite#custom#map('insert', '<C-h>', '<denite:do_action:split>',
-\'noremap')
-catch
-  echo 'Denite not installed. It should work after running :PlugInstall'
-endtry
+" try
+" call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git'])
+" " Use ripgrep in place of "grep"
+" call denite#custom#var('grep', 'command', ['rg'])
+"
+" " Custom options for ripgrep
+" "   --vimgrep:  Show results with every match on it's own line
+" "   --hidden:   Search hidden directories and files
+" "   --heading:  Show the file name above clusters of matches from each file
+" "   --S:        Search case insensitively if the pattern is all lowercase
+" call denite#custom#var('grep', 'default_opts', ['--hidden', '--vimgrep', '--heading', '-S'])
+"
+" " Recommended defaults for ripgrep via Denite docs
+" call denite#custom#var('grep', 'recursive_opts', [])
+" call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+" call denite#custom#var('grep', 'separator', ['--'])
+" call denite#custom#var('grep', 'final_opts', [])
+"
+" " Remove date from buffer list
+" call denite#custom#var('buffer', 'date_format', '')
+"
+" " Custom options for Denite
+" "   auto_resize             - Auto resize the Denite window height automatically.
+" "   prompt                  - Customize denite prompt
+" "   direction               - Specify Denite window direction as directly below current pane
+" "   winminheight            - Specify min height for Denite window
+" "   highlight_mode_insert   - Specify h1-CursorLine in insert mode
+" "   prompt_highlight        - Specify color of prompt
+" "   highlight_matched_char  - Matched characters highlight
+" "   highlight_matched_range - matched range highlight
+" let s:denite_options = {'default' : {
+" \ 'auto_resize': 1,
+" \ 'prompt': 'λ:',
+" \ 'direction': 'rightbelow',
+" \ 'winminheight': '10',
+" \ 'highlight_mode_insert': 'Visual',
+" \ 'highlight_mode_normal': 'Visual',
+" \ 'prompt_highlight': 'Function',
+" \ 'highlight_matched_char': 'Function',
+" \ 'highlight_matched_range': 'Normal'
+" \ }}
+"
+" " Loop through denite options and enable them
+" function! s:profile(opts) abort
+"   for l:fname in keys(a:opts)
+"     for l:dopt in keys(a:opts[l:fname])
+"       call denite#custom#option(l:fname, l:dopt, a:opts[l:fname][l:dopt])
+"     endfor
+"   endfor
+" endfunction
+"
+" call s:profile(s:denite_options)
+"
+" nnoremap <C-p> :<C-u>Denite file/rec<CR>
+" nnoremap <C-e> :<C-u>Denite buffer<CR>
+" nnoremap <Leader>e :<C-u>Denite buffer<CR>
+"
+" call denite#custom#map(
+" 	      \ 'insert',
+" 	      \ '<C-j>',
+" 	      \ '<denite:move_to_next_line>',
+" 	      \ 'noremap'
+" 	      \)
+" call denite#custom#map(
+" 	      \ 'insert',
+" 	      \ '<C-k>',
+" 	      \ '<denite:move_to_previous_line>',
+" 	      \ 'noremap'
+" 	      \)
+" call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>',
+" \'noremap')
+" call denite#custom#map('insert', '<C-h>', '<denite:do_action:split>',
+" \'noremap')
+" catch
+"   echo 'Denite not installed. It should work after running :PlugInstall'
+" endtry
 
 " === Coc.nvim === "
 " use <tab> for trigger completion and navigate to next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
+" Packages
 
+if executable('rg')
+  set grepprg=rg\ --color=never
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  let g:ctrlp_use_caching = 0
+endif
+
+let g:ctrlp_custom_ignore = {
+ \ 'dir': '\.git$\|\.yardoc\|bower_components|node_modules|public$|log\|tmp$',
+ \ 'file': '\.so$\|\.dat$|\.DS_Store$'
+ \ }
+
+" let g:ctrlp_map = '<tab>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_dont_split = 'NERD'
+
+nnoremap <Leader>e :CtrlPBuffer<CR>
+nnoremap <Leader>p :CtrlP<CR>
+noremap <silent> <c-p> :CtrlP<CR>
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-"Close preview window when completion is done.
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <SPACE> pumvisible() ? "\<C-y>" : "\<SPACE>"
+"
 
 " === NeoSnippet === "
 " Map <C-k> as shortcut to activate snippet if available
@@ -411,18 +443,19 @@ let g:signify_sign_delete = '-'
 nmap <silent>gd <Plug>(coc-definition)
 nmap <silent>gr <Plug>(coc-references)
 nmap <silent>gi <Plug>(coc-implementation)
-
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> go :CocCommand tsserver.organizeImports<CR>
 nmap <leader>m <Plug>(coc-diagnostic-prev)
 nmap <leader>n <Plug>(coc-diagnostic-next)
 " === vim-better-whitespace === "
 "   <leader>y - Automatically remove trailing whitespace
 nmap <leader>y :StripWhitespace<CR>
 
-" === Search shorcuts === "
-"   <leader>h - Find and replace
-"   <leader>/ - Claer highlighted search terms while preserving history
-map <leader>rr :%s///<left><left>
-nmap <silent> <leader>/ :nohlsearch<CR>
+" " === Search shorcuts === "
+" "   <leader>h - Find and replace
+" "   <leader>/ - Claer highlighted search terms while preserving history
+" map <leader>rr :%s///<left><left>
+" nmap <silent> <leader>/ :nohlsearch<CR>
 
 " If php-cs-fixer is in $PATH, you don't need to define line below
 " let g:php_cs_fixer_path = "~/php-cs-fixer.phar" " define the path to the php-cs-fixer.phar
@@ -451,13 +484,18 @@ autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 " Allows you to save files you opened without write permissions via sudo
 cmap w!! w !sudo tee %
 
-set termguicolors
+" set termguicolors
+
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 
 " Editor theme
 set background=dark
 try
-  " colorscheme OceanicNext
- colorscheme material
+  colorscheme OceanicNext
 " Vim airline theme
  let g:airline_theme = 'material'
 catch
@@ -479,7 +517,8 @@ set shiftwidth=2
 set expandtab
 set textwidth=0
 set wrapmargin=0
-" :CocInstall coc-json coc-html coc-css coc-tsserver coc-eslint coc-yaml coc-html
+set signcolumn=yes
+" :CocInstall coc-json coc-html coc-css coc-tsserver coc-eslint coc-yaml coc-html coc-prettier
 "
 "
 map <leader>h :wincmd h<CR>
