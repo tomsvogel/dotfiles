@@ -5,10 +5,10 @@ case "$(uname -s)" in
 
 
      # The next line updates PATH for the Google Cloud SDK.
-     if [ -f '/Users/toms/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/toms/google-cloud-sdk/path.zsh.inc'; fi
+     if [ -f '/Users/toms/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/toms/google-cloud-sdk/path.zsh.inc'; fi
 
      # The next line enables shell command completion for gcloud.
-     if [ -f '/Users/toms/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/toms/google-cloud-sdk/completion.zsh.inc'; fi
+     if [ -f '/Users/toms/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/toms/google-cloud-sdk/completion.zsh.inc'; fi
      ;;
 
    Linux)
@@ -77,6 +77,7 @@ alias mongoForward='ssh -fN -L 9999:localhost:27017'
 alias sqlForward='ssh -fN -L 9998:localhost:3306'
 alias python=python3
 alias pip=pip3
+alias dockerStopAll='docker stop $(docker ps -aq)'
 export EDITOR=vim
 alias avc='code -a '
 # pyenv
@@ -96,7 +97,7 @@ case "$(uname -s)" in
 esac
 
 function k8sconfig () {
-    KUBECONFIG=~/.kube/config_default:~/.kube/saem-kubeconfig.yaml:~/.kube/chips-kubeconfig.yaml:~/.kube/eventz-cluster-kubeconfig.yaml:~/.kube/aps-kubeconfig.yaml:~/.kube/crate_config_user:~/.kube/crate_kubeconfig_shared kubectl config view --flatten > mergedkub && mv mergedkub ~/.kube/config
+    KUBECONFIG=~/.kube/config_default:~/.kube/chips-kubeconfig.yaml:~/.kube/arkulpa1-cluster-kubeconfig.yaml:~/.kube/crate_config_user:~/.kube/crate_kubeconfig_shared kubectl config view --flatten > mergedkub && mv mergedkub ~/.kube/config
   }
 # source <(kubectl completion zsh)
 # mac
@@ -120,3 +121,4 @@ autoload -Uz compinit
 compinit
 # fnm
 eval "$(fnm env --multi)"
+

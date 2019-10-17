@@ -22,10 +22,10 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 
 " Trailing whitespace highlighting & automatic fixing
-Plug 'ntpeters/vim-better-whitespace'
+" Plug 'ntpeters/vim-better-whitespace'
 
 " auto-close plugin
-Plug 'rstacruz/vim-closer'
+Plug 'jiangmiao/auto-pairs'
 
 " Improved motion in Vim
 Plug 'easymotion/vim-easymotion'
@@ -36,7 +36,6 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
 " Tmux/Neovim movement integration
 Plug 'christoomey/vim-tmux-navigator'
-
 " Denite - Fuzzy finding, buffer management
 " Plug 'Shougo/denite.nvim'
 
@@ -59,12 +58,11 @@ Plug 'tpope/vim-fugitive'
 " Plug 'HerringtonDarkholme/yats.vim'
 
 " ReactJS JSX syntax highlighting
-" Plug 'mxw/vim-jsx'
-Plug 'leafgarland/typescript-vim'
+Plug 'mxw/vim-jsx'
+Plug 'ianks/vim-tsx'
+" Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'peitalin/vim-jsx-typescript'
-
+"
 " Generate JSDoc commands based on function signature
 Plug 'heavenshell/vim-jsdoc'
 
@@ -112,7 +110,7 @@ Plug 'elzr/vim-json'
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'evidens/vim-twig'
-Plug 'Galooshi/vim-import-js'
+" Plug 'Galooshi/vim-import-js'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " Plug 'hail2u/vim-css3-syntax'
 " Utilities
@@ -174,6 +172,7 @@ Plug 'eugen0329/vim-esearch'
 
 " Plug 'rstacruz/vim-opinion'
 " Plug 'rakr/vim-one'
+Plug 'wsdjeg/vim-todo'
 call plug#end()
 
 " ========================================
@@ -215,7 +214,6 @@ set nocompatible                  " Must come first because it changes other opt
 " let g:python_host_skip_check = 1
 " let g:python3_host_skip_check = 1
 
-set colorcolumn=80
 
 " augroup javascript_folding
 "     au!
@@ -228,10 +226,59 @@ set conceallevel=1
 " autocmd FileType javascript,typescript,typescript.tsx,json setl foldmethod=syntax
 "
 "
-set ttyfast
-set lazyredraw
-set nocursorline
-set nocursorcolumn
+if has("mac")
+  set nocursorline
+
+  set nocursorcolumn
+  set lazyredraw
+  set ttyfast
+  if exists("+relativenumber")
+    set norelativenumber
+  endif
+
+  set foldlevel=0
+  set foldmethod=manual
+  " Disable line numbers
+  set number
+  
+  " Don't show last command
+  set noshowcmd
+  
+  " Yank and paste with the system clipboard
+  set clipboard=unnamed
+  
+  " Hides buffers instead of closing them
+  set hidden
+  
+  " === TAB/Space settings === "
+  " Insert spaces when TAB is pressed.
+  set expandtab
+  
+  " Change number of spaces that a <Tab> counts for during editing ops
+  set softtabstop=2
+  
+  " Indentation amount for < and > commands.
+  set shiftwidth=2
+  
+  " do not wrap long lines by default
+  set nowrap
+  
+  " Don't highlight current cursor line
+  set nocursorline
+  
+  " Disable line/column number in status line
+  " Shows up in preview window when airline is disabled if not
+  set noruler
+  
+  " Only one line for command line
+  set cmdheight=1
+  
+  " === Completion Settings === "
+  
+  " Don't give completion messages like 'match 1 of 2'
+  " or 'The only match'
+  set shortmess+=c
+endif
 " set noshowcmd
 
 " try
@@ -350,10 +397,23 @@ endfunction
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 " Coc only does snippet and additional edit on confirm.
-inoremap <expr> <SPACE> pumvisible() ? "\<C-y>" : "\<SPACE>"
-"
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " === NeoSnippet === "
 " Map <C-k> as shortcut to activate snippet if available
@@ -424,6 +484,7 @@ endtry
 " === echodoc === "
 " Enable echodoc on startup
 let g:echodoc#enable_at_startup = 1
+set cmdheight=2
 
 " === vim-javascript === "
 " Enable syntax highlighting for JSDoc
@@ -449,13 +510,13 @@ nmap <leader>m <Plug>(coc-diagnostic-prev)
 nmap <leader>n <Plug>(coc-diagnostic-next)
 " === vim-better-whitespace === "
 "   <leader>y - Automatically remove trailing whitespace
-nmap <leader>y :StripWhitespace<CR>
+" nmap <leader>y :StripWhitespace<CR>
 
 " " === Search shorcuts === "
 " "   <leader>h - Find and replace
 " "   <leader>/ - Claer highlighted search terms while preserving history
-" map <leader>rr :%s///<left><left>
-" nmap <silent> <leader>/ :nohlsearch<CR>
+map <leader>rr :%s///<left><left>
+nmap <leader>/ :nohlsearch<CR>
 
 " If php-cs-fixer is in $PATH, you don't need to define line below
 " let g:php_cs_fixer_path = "~/php-cs-fixer.phar" " define the path to the php-cs-fixer.phar
@@ -507,17 +568,16 @@ endtry
 :nmap ö :bprev<CR>
 :nmap # :bdelete<CR>
 
-set nofoldenable    " disable folding
-let g:better_whitespace_enabled=1
-let g:strip_whitespace_on_save=1
-set cmdheight=2
-set number
-set tabstop=2
-set shiftwidth=2
-set expandtab
-set textwidth=0
-set wrapmargin=0
-set signcolumn=yes
+" set nofoldenable    " disable folding
+" let g:better_whitespace_enabled=1
+" let g:strip_whitespace_on_save=1
+" set number
+" set tabstop=2
+" set shiftwidth=2
+" set expandtab
+" set textwidth=0
+" set wrapmargin=0
+" set signcolumn=yes
 " :CocInstall coc-json coc-html coc-css coc-tsserver coc-eslint coc-yaml coc-html coc-prettier
 "
 "
