@@ -93,8 +93,8 @@ set clipboard=unnamedplus
 :set number norelativenumber
 
 " Show Invisibles
-set list
-set listchars=tab:→→,eol:¬,space:.
+" set list
+" set listchars=tab:→→,eol:¬,space:.
 
 " Automatically hide buffer with unsaved changes without showing warning
 set hidden

@@ -7,6 +7,10 @@ Plug 'w0rp/ale'
 " Markdown
 Plug 'reedes/vim-pencil'
 Plug 'nelstrom/vim-markdown-folding'
+" php
+Plug 'stephpy/vim-php-cs-fixer'
+Plug 'evidens/vim-twig'
+Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
 
 " File explorer
 Plug 'scrooloose/nerdtree'
@@ -31,6 +35,7 @@ Plug 'itchyny/lightline.vim'
 " Autocompletion & Intellisense
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'SirVer/ultisnips'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 " Utilities
 Plug 'airblade/vim-rooter'
@@ -52,5 +57,8 @@ Plug 'luochen1990/rainbow'
 " Plug 'ludovicchabant/vim-gutentags'
 Plug 'TaDaa/vimade'
 Plug 'eugen0329/vim-esearch'
+" Syntax highlighting for nginx
+Plug 'chr4/nginx.vim'
+
 call plug#end()
 "}}}

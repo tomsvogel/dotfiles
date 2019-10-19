@@ -69,3 +69,11 @@ nnoremap N Nzz
 " "   <leader>/ - Claer highlighted search terms while preserving history
 map <leader>rr :%s///<left><left>
 nmap <leader>/ :nohlsearch<CR>
+
+
+" " === Buffer shorcuts === "
+nmap # :bdelete<CR>
+map <leader>h :wincmd h<CR>
+map <leader>j :wincmd j<CR>
+map <leader>k :wincmd k<CR>
+map <leader>l :wincmd l<CR>
