@@ -11,14 +11,6 @@ nnoremap <F2> :w<CR>
 
 inoremap <S-Tab> <C-d>
 
-" MOVING LINES
-" Normal mode
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
-
-" Visual mode
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " QuickFix List
 nnoremap <leader>co :cw<CR>
@@ -73,7 +65,7 @@ nmap <leader>/ :nohlsearch<CR>
 
 " " === Buffer shorcuts === "
 nmap # :bdelete<CR>
-map <leader>h :wincmd h<CR>
-map <leader>j :wincmd j<CR>
-map <leader>k :wincmd k<CR>
-map <leader>l :wincmd l<CR>
+map <C-h> :wincmd h<CR>
+map <C-j> :wincmd j<CR>
+map <C-k> :wincmd k<CR>
+map <C-l> :wincmd l<CR>

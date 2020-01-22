@@ -1,22 +1,29 @@
-" #GRUVBOX {{{
+" GRUVBOX {{{
 " set background=dark
 " let g:gruvbox_sign_column = 'bg0'
 " let g:gruvbox_contrast_dark = 'hard'
 " let g:gruvbox_italic = 1
 " let g:gruvbox_invert_selection = 0
-" let g:gruvbox_plugin_hi_groups = 1
+" let g:gruvbox_plugin_hi_groups =1
+" let g:lightline = { 'colorscheme': 'gruvbox' }
 " colorscheme gruvbox
 " }}}
 
 
-" #OCEANIC {{{
 syntax enable
-"let g:airline_theme='oceanicnext'
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
 syntax on
-colorscheme OceanicNext
-" }}}
+
+ " #THEME {{{
+" let g:airline_theme='oceanicnext'
+"  let g:oceanic_next_terminal_bold = 1
+"  let g:oceanic_next_terminal_italic = 1
+"  colorscheme OceanicNext
+"  let g:material_theme_style = 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
+ let g:material_theme_style = 'dark'
+"if you use airline / lightline
+let g:lightline = { 'colorscheme': 'material_vim' }
+colorscheme material
+"}}}
 
 " #SUPERTAB {{{
 let g:SuperTabDefaultCompletionType = "<c-n>"
@@ -60,8 +67,9 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 nmap <silent>gd <Plug>(coc-definition)
 nmap <silent>gr <Plug>(coc-references)
 nmap <silent>gi <Plug>(coc-implementation)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> go :CocCommand tsserver.organizeImports<CR>
+nmap <silent>gy <Plug>(coc-type-definition)
+nmap <silent>go :CocCommand tsserver.organizeImports<CR>
+nmap <silent>ff :CocCommand prettier.formatFile<CR>
 
 nnoremap <silent> <Leader>K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
@@ -82,38 +90,44 @@ augroup pencil
   autocmd!
   autocmd FileType markdown,mkd,md call pencil#init({'wrap': 'soft'})
 augroup END
+nmap <C-m> <Plug>MarkdownPreviewToggle
 "}}}
 
 " #ALE {{{
-let g:ale_fixers = {}
-let g:ale_fixers['javascript'] = ['eslint']
-let g:ale_fixers['typescript'] = ['eslint']
-let g:ale_fixers['json'] = ['prettier']
-let g:ale_fixers['scss'] = ['stylelint']
-let g:ale_fixers['rust'] = ['rustfmt']
-let g:ale_fix_on_save = 1 " Fix files automatically on save
-let g:ale_pattern_options = {
-\ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
-\ '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
-\}
+" let g:ale_fixers = {}
+" let g:ale_fixers['javascript'] = ['eslint']
+" let g:ale_fixers['typescript'] = ['eslint']
+" let g:ale_fixers['json'] = ['prettier']
+" let g:ale_fixers['scss'] = ['stylelint']
+" let g:ale_fixers['rust'] = ['rustfmt']
+" let g:ale_fix_on_save = 1 " Fix files automatically on save
+" let g:ale_pattern_options = {
+" \ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
+" \ '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
+" \}
 
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '⚠️'
+  "diagnostic.errorSign": "•",
+  "diagnostic.warningSign": "•",
+  "diagnostic.infoSign": "•",
+" let g:ale_sign_error = '•'
+" let g:ale_sign_warning = '•'
+"Move between linting errors
+" nmap <silent> [c <Plug>(ale_previous_wrap)
+" nmap <silent> ]c <Plug>(ale_next_wrap)
+" nmap <silent> <leader>n :ALENext<cr>
+" nmap <silent> <leader>m :ALEPrevious<cr>
 
-" Move between linting errors
-nmap <silent> [c <Plug>(ale_previous_wrap)
-nmap <silent> ]c <Plug>(ale_next_wrap)
-nmap <silent> <leader>n :ALENext<cr>
-nmap <silent> <leader>m :ALEPrevious<cr>
+nmap <silent> <leader>n <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>m <Plug>(coc-diagnostic-prev)
 
-nmap <F6> <Plug>(ale_fix)
+" nmap <F6> <Plug>(ale_fix)
 "}}}
 
 " #ULTILSNIPS {{{
 let g:UltiSnipsExpandTrigger="<c-s>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsSnippetsDir="~/.config/nvim/snips"
+let g:UltiSnipsSnippetsDir="~/.dotfiles/nvim/snips"
 let g:UltiSnipsSnippetDirectories=["UtilSnips", "snips"]
 "}}}
 
@@ -127,7 +141,8 @@ let g:UltiSnipsSnippetDirectories=["UtilSnips", "snips"]
 " #FZF {{{
 let g:fzf_command_prefix = 'Fzf'
 nnoremap <C-e> :FzfBuffers<CR>
-nnoremap <Leader>h :FzfHistory<CR>
+nnoremap <Leader>b :FzfBuffers<CR>
+" nnoremap <Leader>e :FzfHistory<CR>
 nnoremap <Leader>t :FzfBTags<CR>
 nnoremap <C-t> :FzfTags<CR>
 " nnoremap <C-p> :FzfFiles<CR>
@@ -233,3 +248,7 @@ let g:php_cs_fixer_verbose = 0                    " Return the output of command
 autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 
 " }}}
+augroup FiletypeGroup
+    autocmd!
+    au BufNewFile,BufRead *.js set filetype=javascript.jsx
+augroup END

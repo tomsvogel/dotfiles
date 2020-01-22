@@ -1,9 +1,26 @@
 {
-  "suggest.echodocSupport": true,
-  "suggest.maxCompleteItemCount": 20,
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact","Markdown","php"],
-  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact","typescript.tsx"],
-  "css.filetypes": ["css", "less", "scss", "javascript", "typescript", "typescriptreact", "javascriptreact","typescript.tsx"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "javascript.jsx",
+    "javascriptreact",
+    "Markdown",
+    "php"
+  ],
+  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx"],
+  "css.filetypes": [
+    "css",
+    "less",
+    "scss",
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "javascript.jsx",
+    "javascriptreact",
+    "typescript.tsx"
+  ],
   "diagnostic.errorSign": "•",
   "diagnostic.warningSign": "•",
   "diagnostic.infoSign": "•",
@@ -16,13 +33,22 @@
   "prettier.jsxBracketSameLine": true,
   "prettier.eslintIntegration": true,
   "prettier.trailingComma": "es5",
-  "prettier.stylelintIntegration":true,
+  "prettier.stylelintIntegration": true,
 
   "languageserver": {
     "phplang": {
       "command": "php",
-      "args": ["/Users/toms/.config/nvim/plugged/LanguageServer-php-neovim/vendor/felixfbecker/language-server/bin/php-language-server.php"],
+      "args": [
+        "/Users/toms/.config/nvim/plugged/LanguageServer-php-neovim/vendor/felixfbecker/language-server/bin/php-language-server.php"
+      ],
       "filetypes": ["php"]
     }
+  },
+  "snippets.ultisnips.directories": ["/Users/toms/.dotfiles/nvim/snips"],
+  "snippets.extends": {
+    "cpp": ["c"],
+    "javascript.jsx": ["javascript"],
+    "typescript": ["javascript"],
+    "typescriptreact": ["javascript"]
   }
 }

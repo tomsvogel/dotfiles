@@ -5,8 +5,9 @@ module.exports = {
     },
     // default font size in pixels for all tabs
     fontSize: 15,
+    letterSpacing: 0,
     // font family with optional fallbacks
-    fontFamily: ' Hack,"DejaVu Sans Mono", "Lucida Console", monospace',
+    fontFamily: 'Hack, Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: 'rgba(248,28,229,0.8)',
@@ -25,30 +26,11 @@ module.exports = {
 
     // custom css to embed in the main window
     css: `
-      .terms_19b1ydh {margin-top: 20px;}
-      .header_windowHeader {
-        display: none;
-      }
-      .tabs_nav {
-        top: 0;
-      }
-      .terms_terms {
-        margin-top: 0;
-      }
-      .terms_termsShifted {
-        margin-top: 30px;
-      }
-}
     `,
 
     // custom css to embed in the terminal window
     termCSS: `
-    
-      .unicode-node {
-        display: inline-block;
-        vertical-align: top;
-        width: 8.4px;}
-    
+
     `,
     // set to `true` if you're using a Linux set up
     // that doesn't shows native menus
@@ -61,7 +43,7 @@ module.exports = {
     showWindowControls: 'false',
 
     // custom padding (css format, i.e.: `top right bottom left`)
-    padding: '2px 2px',
+    padding: '0px 0px 0px 0px',
 
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide
@@ -114,7 +96,12 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: ['hyper-hide-tabs', 'hyperminimal', 'hyper-hide-title', 'hyper-materialshell', 'hyper-font-smoothing'],
+  // 'hyper-hide-tabs',
+  //   'hyperminimal',
+  //         'hyper-hide-title',
+  //               'hyper-materialshell',
+
+  plugins: ['hyper-font-smoothing', 'hyper-hide-tabs', 'hyperminimal', 'hyper-hide-title', 'hyper-materialshell'],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here

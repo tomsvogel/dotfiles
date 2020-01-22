@@ -92,12 +92,13 @@ alias avc='code -a '
 case "$(uname -s)" in
    Darwin)
       #init fnm - fast node manager
-      eval `fnm env`
+     eval "$(fnm env --multi)"
+
      ;;
 esac
 
 function k8sconfig () {
-    KUBECONFIG=~/.kube/config_default:~/.kube/chips-kubeconfig.yaml:~/.kube/arkulpa1-cluster-kubeconfig.yaml:~/.kube/crate_config_user:~/.kube/crate_kubeconfig_shared kubectl config view --flatten > mergedkub && mv mergedkub ~/.kube/config
+    KUBECONFIG=~/.kube/config_default:~/.kube/chips-kubeconfig.yml:~/.kube/vbv-kubeconfig.yml:~/.kube/fairsend-kubeconfig.yml:~/.kube/arkulpa1-cluster-kubeconfig.yml:~/.kube/crate_config_user:~/.kube/crate_kubeconfig_shared kubectl config view --flatten > mergedkub && mv mergedkub ~/.kube/config
   }
 # source <(kubectl completion zsh)
 # mac

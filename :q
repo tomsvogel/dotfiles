@@ -74,8 +74,8 @@ set wrap!
 set formatoptions+=t
 set colorcolumn=+1
 set showmatch
-" set lazyredraw
-" set redrawtime=10000
+set lazyredraw
+set redrawtime=10000
 set autoread "reads changes
 
 " #FINDING FILES

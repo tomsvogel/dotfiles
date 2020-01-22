@@ -2,11 +2,14 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Linting and Code Formatting
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 
 " Markdown
 Plug 'reedes/vim-pencil'
-Plug 'nelstrom/vim-markdown-folding'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+" Plug 'nelstrom/vim-markdown-folding'
 " php
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'evidens/vim-twig'
@@ -26,11 +29,15 @@ Plug 'junegunn/fzf.vim'
 
 " Syntax Highlighting And Indentation For 100+ Languages
 Plug 'sheerun/vim-polyglot'
+" Plug 'yuezk/vim-js'
+" Plug 'HerringtonDarkholme/yats.vim'
 
+" Plug 'maxmellon/vim-jsx-pretty'
 " Appearance and Themes
 Plug 'gruvbox-community/gruvbox'
 Plug 'mhartington/oceanic-next'
 Plug 'itchyny/lightline.vim'
+Plug 'kaicataldo/material.vim'
 
 " Autocompletion & Intellisense
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
