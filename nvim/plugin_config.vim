@@ -19,11 +19,14 @@ syntax on
 "  let g:oceanic_next_terminal_italic = 1
 "  colorscheme OceanicNext
 "  let g:material_theme_style = 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
- let g:material_theme_style = 'dark'
+ " let g:material_theme_style = 'dark'
 "if you use airline / lightline
-let g:lightline = { 'colorscheme': 'material_vim' }
-colorscheme material
-"}}}
+" let g:lightline = { 'colorscheme': 'material_vim' }
+" colorscheme material
+" colorscheme onehalflight
+colorscheme onehalfdark
+let g:lightline = { 'colorscheme' : 'onehalfdark' }
+" }}}
 
 " #SUPERTAB {{{
 let g:SuperTabDefaultCompletionType = "<c-n>"
