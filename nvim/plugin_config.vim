@@ -12,7 +12,7 @@
 
 syntax enable
 syntax on
-
+colorscheme dracula
  " #THEME {{{
 " let g:airline_theme='oceanicnext'
 "  let g:oceanic_next_terminal_bold = 1
@@ -24,8 +24,9 @@ syntax on
 " let g:lightline = { 'colorscheme': 'material_vim' }
 " colorscheme material
 " colorscheme onehalflight
-colorscheme onehalfdark
-let g:lightline = { 'colorscheme' : 'onehalfdark' }
+" colorscheme onehalfdark
+" let g:lightline = { 'colorscheme' : 'onehalfdark' }
+" let g:lightline = { 'colorscheme' : 'onehalflight' }
 " }}}
 
 " #SUPERTAB {{{
@@ -74,7 +75,7 @@ nmap <silent>gy <Plug>(coc-type-definition)
 nmap <silent>go :CocCommand tsserver.organizeImports<CR>
 nmap <silent>ff :CocCommand prettier.formatFile<CR>
 
-nnoremap <silent> <Leader>K :call <SID>show_documentation()<CR>
+nnoremap <silent>gh :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if &filetype == 'vim'
     execute 'h '.expand('<cword>')

@@ -39,6 +39,7 @@ Plug 'mhartington/oceanic-next'
 Plug 'itchyny/lightline.vim'
 Plug 'kaicataldo/material.vim'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'dracula/vim', {'as':'dracula'}
 
 " Autocompletion & Intellisense
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
