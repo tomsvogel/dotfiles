@@ -1,18 +1,18 @@
 " GRUVBOX {{{
-" set background=dark
-" let g:gruvbox_sign_column = 'bg0'
-" let g:gruvbox_contrast_dark = 'hard'
-" let g:gruvbox_italic = 1
-" let g:gruvbox_invert_selection = 0
-" let g:gruvbox_plugin_hi_groups =1
-" let g:lightline = { 'colorscheme': 'gruvbox' }
-" colorscheme gruvbox
+set background=dark
+let g:gruvbox_sign_column = 'bg0'
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_italic = 1
+let g:gruvbox_invert_selection = 0
+let g:gruvbox_plugin_hi_groups =1
+let g:lightline = { 'colorscheme': 'gruvbox' }
+colorscheme gruvbox
 " }}}
 
 
 syntax enable
 syntax on
-colorscheme dracula
+" colorscheme dracula
  " #THEME {{{
 " let g:airline_theme='oceanicnext'
 "  let g:oceanic_next_terminal_bold = 1

@@ -77,6 +77,7 @@ alias mongoForward='ssh -fN -L 9999:localhost:27017'
 alias sqlForward='ssh -fN -L 9998:localhost:3306'
 alias python=python3
 alias pip=pip3
+alias kc=kubectl
 alias dockerStopAll='docker stop $(docker ps -aq)'
 export EDITOR=vim
 alias avc='code -a '

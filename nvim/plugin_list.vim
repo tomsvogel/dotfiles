@@ -34,12 +34,13 @@ Plug 'sheerun/vim-polyglot'
 
 " Plug 'maxmellon/vim-jsx-pretty'
 " Appearance and Themes
-Plug 'gruvbox-community/gruvbox'
-Plug 'mhartington/oceanic-next'
+" Plug 'gruvbox-community/gruvbox'
+" Plug 'mhartington/oceanic-next'
 Plug 'itchyny/lightline.vim'
-Plug 'kaicataldo/material.vim'
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
-Plug 'dracula/vim', {'as':'dracula'}
+" Plug 'kaicataldo/material.vim'
+" Plug 'sonph/onehalf', {'rtp': 'vim/'}
+" Plug 'dracula/vim', {'as':'dracula'}
+Plug 'morhetz/gruvbox'
 
 " Autocompletion & Intellisense
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}

@@ -24,7 +24,7 @@
   "diagnostic.errorSign": "•",
   "diagnostic.warningSign": "•",
   "diagnostic.infoSign": "•",
-  "eslint.autoFixOnSave": true,
+  "eslint.autoFixOnSave": false,
   "prettier.useTabs": false,
   "prettier.printWidth": 120,
   "prettier.tabWidth": 2,
@@ -33,6 +33,7 @@
   "prettier.trailingComma": "es5",
   "prettier.jsxSingleQuote": true,
   "prettier.bracketSpacing": false,
+  "prettier.eslintIntegration": true,
 
   "languageserver": {
     "phplang": {
