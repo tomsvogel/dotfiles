@@ -80,7 +80,7 @@ alias pip=pip3
 alias kc=kubectl
 alias dockerStopAll='docker stop $(docker ps -aq)'
 export EDITOR=vim
-alias avc='code -a '
+alias vc='code -a '
 # pyenv
 # export LDFLAGS="-L/usr/local/opt/zlib/lib"
 # export CPPFLAGS="-I/usr/local/opt/zlib/include"

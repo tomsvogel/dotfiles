@@ -134,3 +134,5 @@ let g:rainbow_active = 1
 autocmd BufEnter * :syntax sync fromstart
 "show signcolum allways
 set scl=yes
+
+set ttyfast
