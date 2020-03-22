@@ -27,7 +27,7 @@ esac
 ZSH_THEME="materialshell"
 
 # plugins=(zsh-autosuggestions kubectl docker)
-plugins=(zsh-autosuggestions docker npm)
+plugins=(zsh-autosuggestions docker npm yarn)
 
 source $ZSH/oh-my-zsh.sh
 
