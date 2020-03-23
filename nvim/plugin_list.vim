@@ -50,6 +50,7 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " Utilities
 Plug 'airblade/vim-rooter'
 Plug 'moll/vim-bbye'
+Plug 'lilydjwg/colorizer'
 " Plug 'mattn/emmet-vim'
 Plug 'miyakogi/conoline.vim'
 Plug 'ervandew/supertab'
