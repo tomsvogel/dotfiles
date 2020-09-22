@@ -35,18 +35,22 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'maxmellon/vim-jsx-pretty'
 " Appearance and Themes
 " Plug 'gruvbox-community/gruvbox'
-" Plug 'mhartington/oceanic-next'
+Plug 'mhartington/oceanic-next'
 Plug 'itchyny/lightline.vim'
-" Plug 'kaicataldo/material.vim'
+Plug 'kaicataldo/material.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 " Plug 'sonph/onehalf', {'rtp': 'vim/'}
 " Plug 'dracula/vim', {'as':'dracula'}
 Plug 'morhetz/gruvbox'
+Plug 'patstockwell/vim-monokai-tasty'
+Plug 'bluz71/vim-nightfly-guicolors'
 
 " Autocompletion & Intellisense
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim'
 Plug 'SirVer/ultisnips'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-
+Plug 'hail2u/vim-css3-syntax'
 " Utilities
 Plug 'airblade/vim-rooter'
 Plug 'moll/vim-bbye'
@@ -68,8 +72,9 @@ Plug 'luochen1990/rainbow'
 " Plug 'ludovicchabant/vim-gutentags'
 Plug 'TaDaa/vimade'
 Plug 'eugen0329/vim-esearch'
+Plug 'brooth/far.vim'
 " Syntax highlighting for nginx
 Plug 'chr4/nginx.vim'
-
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
 call plug#end()
 "}}}

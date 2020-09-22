@@ -4,10 +4,11 @@ module.exports = {
       theme: 'oceanic',
     },
     // default font size in pixels for all tabs
-    fontSize: 15,
+    fontSize: '14',
+    lineHeight: '14px',
     letterSpacing: 0,
     // font family with optional fallbacks
-    fontFamily: 'Hack, Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    fontFamily: '"Jetbrains Mono",Hack, Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: 'rgba(248,28,229,0.8)',
@@ -27,11 +28,8 @@ module.exports = {
     // custom css to embed in the main window
     css: `
     `,
-
     // custom css to embed in the terminal window
-    termCSS: `
-
-    `,
+    termCSS: 'x-row {line-height: 1em;}',
     // set to `true` if you're using a Linux set up
     // that doesn't shows native menus
     // default: `false` on Linux, `true` on Windows (ignored on macOS)
@@ -101,7 +99,14 @@ module.exports = {
   //         'hyper-hide-title',
   //               'hyper-materialshell',
 
-  plugins: ['hyper-font-smoothing', 'hyper-hide-tabs', 'hyperminimal', 'hyper-hide-title', 'hyper-materialshell'],
+  plugins: [
+    'hyper-font-smoothing',
+    'hyper-vsplit-fix',
+    'hyper-hide-tabs',
+    'hyperminimal',
+    'hyper-hide-title',
+    'hyper-materialshell',
+  ],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here

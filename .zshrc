@@ -1,4 +1,11 @@
-#!/usr/bin/env bash
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+
 case "$(uname -s)" in
    Darwin)
      export ZSH="/Users/toms/.oh-my-zsh"
@@ -23,8 +30,8 @@ case "$(uname -s)" in
      echo 'other OS'
      ;;
 esac
-# ZSH_THEME="avit"
-ZSH_THEME="materialshell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="agnoster"
 
 # plugins=(zsh-autosuggestions kubectl docker)
 plugins=(zsh-autosuggestions docker npm yarn)
@@ -50,6 +57,7 @@ alias grebaseMaster='git rebase origin/master'
 alias grebaseMasterInteractive='git rebase -i origin/master'
 alias gfixup='git commit --fixup $(git rev-parse HEAD)'
 alias gorigin='git remote -v'
+alias ip='curl icanhazip.com'
 function portUsage () {
   sudo lsof -i tcp:"$1"
 }
@@ -75,12 +83,15 @@ alias fromTproSimulate='rsync -avu --delete --progress --dry-run --exclude "node
 
 alias mongoForward='ssh -fN -L 9999:localhost:27017'
 alias sqlForward='ssh -fN -L 9998:localhost:3306'
-alias python=python3
-alias pip=pip3
+# alias python=python3
+# alias pip=pip3
 alias kc=kubectl
 alias dockerStopAll='docker stop $(docker ps -aq)'
 export EDITOR=vim
 alias vc='code -a '
+
+alias switchLight='cp ~/.dotfiles/nvim/theme_light.vim ~/.dotfiles/nvim/theme.vim && cp ~/.dotfiles/kitty/github.conf ~/.dotfiles/kitty/theme.conf'
+alias switchDark='cp ~/.dotfiles/nvim/theme_dark.vim ~/.dotfiles/nvim/theme.vim && cp ~/.dotfiles/kitty/nightfly.conf ~/.dotfiles/kitty/theme.conf'
 # pyenv
 # export LDFLAGS="-L/usr/local/opt/zlib/lib"
 # export CPPFLAGS="-I/usr/local/opt/zlib/include"
@@ -125,3 +136,6 @@ compinit
 eval "$(fnm env --multi)"
 
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

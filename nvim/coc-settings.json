@@ -1,14 +1,6 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
-    "typescript",
-    "typescriptreact",
-    "json",
-    "javascript.jsx",
-    "javascriptreact",
-    "Markdown",
-    "php"
-  ],
+  "suggest.noselect": true,
+  "coc.preferences.formatOnSaveFiletypes": ["*"],
   "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx"],
   "css.filetypes": [
     "css",
@@ -33,8 +25,9 @@
   "prettier.trailingComma": "es5",
   "prettier.jsxSingleQuote": true,
   "prettier.bracketSpacing": false,
+  "prettier.semi": true,
+  "prettier.arrowParens": "always",
   "prettier.eslintIntegration": true,
-
   "languageserver": {
     "phplang": {
       "command": "php",

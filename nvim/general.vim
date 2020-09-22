@@ -78,6 +78,22 @@ set showmatch
 " set redrawtime=10000
 set autoread "reads changes
 
+augroup checktime
+    au!
+    if !has("gui_running")
+        "silent! necessary otherwise throws errors when using command
+        "line window.
+        autocmd BufEnter        * silent! checktime
+        autocmd CursorHold      * silent! checktime
+        autocmd CursorHoldI     * silent! checktime
+        "these two _may_ slow things down. Remove if they do.
+        autocmd CursorMoved     * silent! checktime
+        autocmd CursorMovedI    * silent! checktime
+        autocmd FocusLost       * silent! w
+        autocmd WinLeave        * silent! w
+    endif
+augroup END
+
 " #FINDING FILES
 " Use the `:find` command to fuzzy search files in the working directory
 " The `:b` command can also be used to do the same for open buffers
@@ -136,3 +152,5 @@ autocmd BufEnter * :syntax sync fromstart
 set scl=yes
 
 set ttyfast
+set mouse:a
+let g:python3_host_prog='/Library/Frameworks/Python.framework/Versions/3.8/bin/python3'

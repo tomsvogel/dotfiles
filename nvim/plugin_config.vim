@@ -1,33 +1,5 @@
-" GRUVBOX {{{
-set background=dark
-let g:gruvbox_sign_column = 'bg0'
-let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_italic = 1
-let g:gruvbox_invert_selection = 0
-let g:gruvbox_plugin_hi_groups =1
-let g:lightline = { 'colorscheme': 'gruvbox' }
-colorscheme gruvbox
-" }}}
-
-
 syntax enable
 syntax on
-" colorscheme dracula
- " #THEME {{{
-" let g:airline_theme='oceanicnext'
-"  let g:oceanic_next_terminal_bold = 1
-"  let g:oceanic_next_terminal_italic = 1
-"  colorscheme OceanicNext
-"  let g:material_theme_style = 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
- " let g:material_theme_style = 'dark'
-"if you use airline / lightline
-" let g:lightline = { 'colorscheme': 'material_vim' }
-" colorscheme material
-" colorscheme onehalflight
-" colorscheme onehalfdark
-" let g:lightline = { 'colorscheme' : 'onehalfdark' }
-" let g:lightline = { 'colorscheme' : 'onehalflight' }
-" }}}
 
 " #SUPERTAB {{{
 let g:SuperTabDefaultCompletionType = "<c-n>"
@@ -74,7 +46,7 @@ nmap <silent>gi <Plug>(coc-implementation)
 nmap <silent>gy <Plug>(coc-type-definition)
 nmap <silent>go :CocCommand tsserver.organizeImports<CR>
 nmap <silent>ff :CocCommand prettier.formatFile<CR>
-
+nmap <silent>tt :CocRestart<CR>
 nnoremap <silent>gh :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if &filetype == 'vim'
@@ -256,3 +228,15 @@ augroup FiletypeGroup
     autocmd!
     au BufNewFile,BufRead *.js set filetype=javascript.jsx
 augroup END
+
+autocmd User esearch_win_config
+  \  let b:autopreview = esearch#async#debounce(b:esearch.split_preview_open, 100)
+  \| autocmd CursorMoved <buffer> call b:autopreview.apply('vsplit')
+
+
+augroup VimCSS3Syntax
+  autocmd!
+  autocmd FileType javascript.jsx,typescriptreact,tsx  setlocal iskeyword+=-
+augroup END
+
+
