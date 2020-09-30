@@ -91,7 +91,7 @@ export EDITOR=vim
 alias vc='code -a '
 
 alias switchLight='cp ~/.dotfiles/nvim/theme_light.vim ~/.dotfiles/nvim/theme.vim && cp ~/.dotfiles/kitty/github.conf ~/.dotfiles/kitty/theme.conf'
-alias switchDark='cp ~/.dotfiles/nvim/theme_dark.vim ~/.dotfiles/nvim/theme.vim && cp ~/.dotfiles/kitty/nightfly.conf ~/.dotfiles/kitty/theme.conf'
+alias switchDark='cp ~/.dotfiles/nvim/theme_dark.vim ~/.dotfiles/nvim/theme.vim && cp ~/.dotfiles/kitty/molokay.conf ~/.dotfiles/kitty/theme.conf'
 # pyenv
 # export LDFLAGS="-L/usr/local/opt/zlib/lib"
 # export CPPFLAGS="-I/usr/local/opt/zlib/include"

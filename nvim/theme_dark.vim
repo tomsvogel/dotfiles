@@ -14,12 +14,12 @@
 " " lightline
 " let g:lightline.colorscheme='onehalfdark'
 
-" let g:vim_monokai_tasty_italic = 1
-" colorscheme vim-monokai-tasty
+let g:vim_monokai_tasty_italic = 1
+colorscheme vim-monokai-tasty
 
-" let g:lightline = {
-"       \ 'colorscheme': 'monokai_tasty',
-"       \ }
+let g:lightline = {
+      \ 'colorscheme': 'monokai_tasty',
+      \ }
 
 
 syntax on
@@ -27,11 +27,12 @@ set t_Co=256
 set cursorline
 
  " colorscheme onehalfdark
-" " let g:airline_theme='onehalfdark'
-" " lightline
+" let g:airline_theme='onehalfdark'
+" lightline
 " let g:lightline.colorscheme='onehalfdark'
 
-colorscheme dracula
+" colorscheme dracula
 " colorscheme_bg="dark"
-
-let g:lightline = { 'colorscheme': 'nightfly' }
+" colorscheme gruvbox
+" let g:gruvbox_contrast_dark="hard"
+" set background=dark

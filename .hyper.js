@@ -4,8 +4,8 @@ module.exports = {
       theme: 'oceanic',
     },
     // default font size in pixels for all tabs
-    fontSize: '14',
-    lineHeight: '14px',
+    fontSize: '16',
+    lineHeight: '16',
     letterSpacing: 0,
     // font family with optional fallbacks
     fontFamily: '"Jetbrains Mono",Hack, Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
