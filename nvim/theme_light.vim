@@ -8,4 +8,4 @@ set cursorline
 colorscheme onehalflight
 " let g:airline_theme='onehalfdark'
 " lightline
-let g:lightline.colorscheme='onehalflight'
+let g:lightline.colorscheme='one'

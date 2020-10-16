@@ -1,8 +1,9 @@
-" let g:material_terminal_italics = 1
-" let g:material_theme_style = 'ocean'
-" let g:material_theme_style = 'palenight'
-" colorscheme material
-" let g:lightline = { 'colorscheme': 'material_vim' }
+let g:material_terminal_italics = 1
+let g:material_theme_style = 'ocean'
+let g:material_theme_style = 'palenight'
+set background=dark
+colorscheme vim-material
+let g:lightline = { 'colorscheme': 'material' }
 " let g:oceanic_next_terminal_bold = 1
 " let g:oceanic_next_terminal_italic = 1
 " colorscheme OceanicNext
@@ -14,12 +15,12 @@
 " " lightline
 " let g:lightline.colorscheme='onehalfdark'
 
-let g:vim_monokai_tasty_italic = 1
-colorscheme vim-monokai-tasty
+" let g:vim_monokai_tasty_italic = 1
+" colorscheme vim-monokai-tasty
 
-let g:lightline = {
-      \ 'colorscheme': 'monokai_tasty',
-      \ }
+" let g:lightline = {
+"       \ 'colorscheme': 'monokai_tasty',
+"       \ }
 
 
 syntax on

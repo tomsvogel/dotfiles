@@ -37,7 +37,8 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'gruvbox-community/gruvbox'
 Plug 'mhartington/oceanic-next'
 Plug 'itchyny/lightline.vim'
-Plug 'kaicataldo/material.vim'
+" Plug 'kaicataldo/material.vim'
+Plug 'hzchirs/vim-material'
 Plug 'dracula/vim', { 'as': 'dracula' }
 " Plug 'sonph/onehalf', {'rtp': 'vim/'}
 " Plug 'dracula/vim', {'as':'dracula'}
