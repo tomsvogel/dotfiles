@@ -1,9 +1,9 @@
-let g:material_terminal_italics = 1
-let g:material_theme_style = 'ocean'
-let g:material_theme_style = 'palenight'
-set background=dark
-colorscheme vim-material
-let g:lightline = { 'colorscheme': 'material' }
+" let g:material_terminal_italics = 1
+" let g:material_theme_style = 'ocean'
+" let g:material_theme_style = 'palenight'
+" set background=dark
+" colorscheme vim-material
+" let g:lightline = { 'colorscheme': 'material' }
 " let g:oceanic_next_terminal_bold = 1
 " let g:oceanic_next_terminal_italic = 1
 " colorscheme OceanicNext
@@ -37,3 +37,22 @@ set cursorline
 " colorscheme gruvbox
 " let g:gruvbox_contrast_dark="hard"
 " set background=dark
+"
+"
+
+" colorscheme = "dracula"
+" colorscheme_bg = "dark"
+" let g:lightline.colorscheme='onehalfdark'
+
+colorscheme neodark
+let g:neodark#background = '#202020'
+
+" To use your default terminal background:
+
+" let g:neodark#terminal_transparent = 1 " default: 0
+" If you want solid vertical split matching the statusline:
+
+" let g:neodark#solid_vertsplit = 1 " default: 0
+
+let g:lightline = {}
+let g:lightline.colorscheme = 'neodark'

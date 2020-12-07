@@ -67,7 +67,7 @@ augroup pencil
   autocmd FileType markdown,mkd,md call pencil#init({'wrap': 'soft'})
 augroup END
 nmap <C-m> <Plug>MarkdownPreviewToggle
-"}}}
+
 
 " #ALE {{{
 " let g:ale_fixers = {}
@@ -100,11 +100,11 @@ nmap <silent> <leader>m <Plug>(coc-diagnostic-prev)
 "}}}
 
 " #ULTILSNIPS {{{
-let g:UltiSnipsExpandTrigger="<c-s>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsSnippetsDir="~/.dotfiles/nvim/snips"
-let g:UltiSnipsSnippetDirectories=["UtilSnips", "snips"]
+" let g:UltiSnipsExpandTrigger="<c-s>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsSnippetsDir="~/.dotfiles/nvim/snips"
+" let g:UltiSnipsSnippetDirectories=["UtilSnips", "snips"]
 "}}}
 
 " #NETRW {{{
@@ -125,6 +125,7 @@ nnoremap <C-t> :FzfTags<CR>
 " Have FZF list all tracked files plus untracked files minus your ignored files
 nnoremap <C-p> :FzfGitFiles --exclude-standard --others --cached<CR>
 nnoremap <Leader>gt :FzfRg<CR>
+let g:fzf_layout = { 'down': '60%' }
 " }}}
 
 " #RIPGREP {{{

@@ -154,3 +154,5 @@ set scl=yes
 set ttyfast
 set mouse:a
 let g:python3_host_prog='/Library/Frameworks/Python.framework/Versions/3.8/bin/python3'
+
+set nospell

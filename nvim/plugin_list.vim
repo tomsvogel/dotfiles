@@ -20,6 +20,9 @@ Plug 'scrooloose/nerdtree'
 
 " Git
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+Plug 'AndrewRadev/linediff.vim'
+
 Plug 'mhinz/vim-signify'
 Plug 'rhysd/git-messenger.vim'
 
@@ -40,6 +43,7 @@ Plug 'itchyny/lightline.vim'
 " Plug 'kaicataldo/material.vim'
 Plug 'hzchirs/vim-material'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'KeitaNakamura/neodark.vim'
 " Plug 'sonph/onehalf', {'rtp': 'vim/'}
 " Plug 'dracula/vim', {'as':'dracula'}
 Plug 'morhetz/gruvbox'
@@ -77,5 +81,10 @@ Plug 'brooth/far.vim'
 " Syntax highlighting for nginx
 Plug 'chr4/nginx.vim'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
+
+" Plug 'kamykn/spelunker.vim'
+
+Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
+
 call plug#end()
 "}}}
